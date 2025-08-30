@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.ui.order.OrderFragment"
+    android:fitsSystemWindows="true"
+    android:paddingStart="18dp"
+    android:paddingEnd="18dp">
+
+   <TextView
+       android:id="@+id/order_Title"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textSize="20sp"
+       android:text="@string/donhang_title"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       android:textStyle="bold"/>
+   <com.google.android.material.tabs.TabLayout
+       android:id="@+id/order_Tab"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toBottomOf="@+id/order_Title"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       android:layout_marginTop="20dp"
+         />
+      <androidx.viewpager2.widget.ViewPager2
+          android:id="@+id/order_View"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/order_Tab"
+          android:layout_marginTop="20dp"
+          />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

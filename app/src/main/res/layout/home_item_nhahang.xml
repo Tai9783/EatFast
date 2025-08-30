@@ -1,0 +1,135 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+    android:background="?attr/selectableItemBackground"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_nhahangbg">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/carviewAnhnhahang"
+            android:layout_width="wrap_content"
+            android:layout_height="85dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/txtTenNhahang"
+            app:cardCornerRadius="20dp">
+
+            <ImageView
+                android:id="@+id/logoNhahang"
+                android:layout_width="123dp"
+                android:layout_height="85dp"
+                android:src="@drawable/home_logo_nhahang_cobasg"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/home_nhahang" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txtTenNhahang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_tenNhahang"
+            app:layout_constraintStart_toEndOf="@id/carviewAnhnhahang"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/italianno_regular"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp" />
+
+            <LinearLayout
+                android:id="@+id/layoutNgoiSao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toEndOf="@id/carviewAnhnhahang"
+                app:layout_constraintTop_toBottomOf="@+id/txtTenNhahang"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+
+                <ImageView
+                    android:id="@+id/star1"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/home_ngoisao_danhgia1"
+                    android:contentDescription="@string/home_ngoisao"
+                    android:layout_gravity="center"
+                    app:tint="#FFBB33" />
+                <ImageView
+                    android:id="@+id/star2"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/home_ngoisao_danhgia1"
+                    android:contentDescription="@string/home_ngoisao"
+                    android:layout_gravity="center"
+                    app:tint="#FFBB33"/>
+                <ImageView
+                    android:id="@+id/star3"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/home_ngoisao_danhgia1"
+                    android:contentDescription="@string/home_ngoisao"
+                    android:layout_gravity="center"
+                    app:tint="#FFBB33" />
+                <ImageView
+                    android:id="@+id/star4"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/home_ngoisao_danhgia1"
+                    android:contentDescription="@string/home_ngoisao"
+                    android:layout_gravity="center"
+                    app:tint="#FFBB33" />
+                <ImageView
+                    android:id="@+id/star5"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/home_ngoisao_danhgia1"
+                    android:contentDescription="@string/home_ngoisao"
+                    android:layout_gravity="center"
+                    app:tint="#FFBB33" />
+                <TextView
+                    android:id="@+id/home_kq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_kq_danhgia"
+                    android:textSize="12sp"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/inriaserif_italic" />
+            </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_diachi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@id/carviewAnhnhahang"
+            app:layout_constraintTop_toBottomOf="@id/layoutNgoiSao"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/home_diachi_nhahang"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/home_diachi_nhahang"
+                android:contentDescription="@string/mota_diachi"
+                android:layout_gravity="center" />
+            <TextView
+                android:id="@+id/txtTendiachi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/diachi_nhahang"
+                android:textSize="9sp"
+                android:fontFamily="@font/instrumentsans_italic"
+                android:layout_marginStart="7dp"
+                android:textColor="#666666"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

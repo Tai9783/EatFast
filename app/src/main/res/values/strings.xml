@@ -1,0 +1,606 @@
+<resources>
+    <string name="app_name">FoodOrderApp</string>
+    <string name="home_name_user">Võ Văn Tài</string>
+    <string name="home_hello_user">Xin chào</string>
+    <string name="home_decrise_ImageButtonNotification">Chứa các thông báo</string>
+    <string name="home_text_AutoComplete">Tìm kiếm món ăn, nhà hàng, quán ăn</string>
+    <string name="home_UuDai">Ưu đãi đặc biệt</string>
+    <string name="home_btnAll">Xem tất cả</string>
+    <string name="home_text_title">GIẢM 30%</string>
+    <string name="home_text_desc">Bánh burger thịt bò đặc biệt!</string>
+    <string name="img_bo">Burger Bò</string>
+    <!---->
+    <string name="title_iconFood">title_iconFood</string>
+
+    <string name="home_nhahang">Quán ăn</string>
+
+    <string name="home_tenNhahang">Cô Ba Sài Gòn</string>
+    <string name="home_ngoisao">Ngôi sao đánh giá</string>
+    <string name="home_kq_danhgia">5.0</string>
+    <string name="mota_diachi"> địa chỉ nhà hàng</string>
+    <string name="diachi_nhahang">56 Phạm Cự Lượng, P2, Quận Tân Bình, HCM</string>
+    <!--Menu nav trang chu-->
+    <string name="home_nav_home">Trang chủ</string>
+    <string name="home_nav_order">Đơn hàng</string>
+    <string name="home_nav_shoppingcart">Giỏ hàng</string>
+    <string name="home_nav_person">Tài khoản</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="donhang_title">Đơn hàng</string>
+    <string name="order_thoigian_ngay">24/06/2025</string>
+    <string name="order_thoigian_gio">14:50</string>
+
+    <string name="order_danggiao">Đang giao hàng</string>
+    <string name="tenmon">1 Bánh Burger thịt bò đặt biệt</string>
+    <string name="gia"> 89000</string>
+    <string name="tongcong">Tổng cộng</string>
+    <string name="order_danggiao_tongthoigiangiaohang">Thời gian giao hàng dự kiến: </string>
+    <string name="order_danggiao_khoangthoigiangiaohang">15-25 phút</string>
+    <string name="order_danggiao_diadiem">123 Nguyễn Văn Linh, Quận 7, Tp HCM</string>
+    <string name="order_danggiao_sdt">0397589783</string>
+    <string name="motaanh">anh</string>
+    <string name="order_danggiao_chitietdonhang">Xem chi tiết đơn hàng</string>
+    <string name="order_danggiao_lienhe">Liên hệ</string>
+    <string name="order_danggiao_huydon">Hủy đơn</string>
+
+    <string name="order_hoanthanh_dagiao">Đã giao</string>
+    <string name="order_hoanthanh_datlai">Đặt lại</string>
+
+    <string name="order_dahuy_lydohuy">Lý do hủy:</string>
+    <string name="order_dahuy_saidiachi">Sai địa chỉ</string>
+    <string name="order_dahuy">Đã hủy</string>
+
+    <string name="shoppingcart_tieude_giohang">Giỏ hàng</string>
+    <string name="shoppingcartItemTenMonAn">Burger gà giòn</string>
+    <string name="shoppingcartTenNhaHang">Cô Ba Sài Gòn</string>
+    <string name="shoppingcartSizeMonAn">Size lớn, cay vừa</string>
+    <string name="shoppingcartGiaMonAn">105.000đ</string>
+    <string name="shoppingcartSoLuong">1</string>
+    <string name="shoppingcartEdt_NhapGiamGia">Nhập mã giảm giá</string>
+    <string name="shoppingcartApDung">Áp dụng</string>
+    <string name="shoppingcart_Tomtatdonhang">Tóm tắt đơn hàng </string>
+    <string name="shoppingcart_TamTinh">Tạm tính(</string>
+    <string name="shoppingcart_Giamgia">Giảm giá</string>
+    <string name="shoppingcart_PhiGiaoHang">Phí giao hàng</string>
+    <string name="shoppingcart_TongTienTamTinh">0đ</string>
+    <string name="shoppingcart_TongCong">Tổng cộng</string>
+    <string name="shoppingcart_SoLuongMon">0</string>
+    <string name="shoppingcart_mon">món)</string>
+    <string name="shoppingcart_giaohangden">Giao hàng đến</string>
+    <string name="shoppingcart_diaChiGiaoHang">125 Nam kì khởi nghĩa, quận 3, Tp HCM</string>
+    <string name="shoppingcart_thayDoiDiaChi">Thay đổi</string>
+    <string name="shoppingcart_tienHang">Tổng tiền hàng:</string>
+    <string name="shoppingcart_tongTienHang">0đ</string>
+
+    <string name="Account_TieuDe">Tài Khoản</string>
+    <string name="Account_Sdt">0397589783</string>
+    <string name="Account_Donhangyeuthich">Đơn hàng và Yêu thích</string>
+    <string name="Account_LichSuDonHang">Lịch sử đơn hàng</string>
+    <string name="Account_MonAnYeuThich">Món ăn yêu thích</string>
+    <string name="Account_UuDai">Ưu đãi của tôi</string>
+    <string name="Account_DiaChiDaLuu">Địa chỉ đã lưu</string>
+    <string name="Account_ThanhToan">Phương thức thanh toán</string>
+    <string name="Account_ThongBao">Thông báo</string>
+    <string name="Account_HoTro">Trung tâm hỗ trợ</string>
+    <string name="Account_ChinhSach">Điều khoản và chính sách</string>
+    <string name="Account_CaiDat">Cài đặt</string>
+    <string name="Account_DangXuat">Đăng xuất</string>
+    <string name="Account_PhienBan">Phiên bản 1.0.0</string>
+
+    <string name="Promotio_UuDai">Các Ưu Đãi</string>
+    <string name="Promotion_ThoiGianGiam">CHỈ HÔM NAY</string>
+
+    <string name="ItemMonAn_TenMonAn">Burger Thịt Gà</string>
+    <string name="ItemMonAn_ThoiGian">Cô Ba Sài Gòn</string>
+    <string name="ItemMonAn_KhoangCach">7km</string>
+    <string name="ItemMonAn_GiaMonAn">180.000 VND</string>
+    <string name="ItemMoAn_TieuDe_MonAn">Hamburger</string>
+    <string name="ItemMonAn_TongLuotMua">99+</string>
+
+    <string name="QuanAn_TenQuanAn">Cô Ba Sài Gòn</string>
+    <string name="QuanAn_TongTB_DanhGia">5.0</string>
+    <string name="QuanAn_TongLuotDanhGia">(120 đánh giá)</string>
+    <string name="QuanAn_ThucDon">Thực đơn nổi bật</string>
+
+    <string name="Login_DangNhap">Đăng nhập</string>
+    <string name="Login_Email">Địa chỉ email</string>
+    <string name="Login_Matkhau">Mật khẩu</string>
+    <string name="Login_QuenMatKhau">Quên mật khẩu?</string>
+    <string name="Login_ChuaCoTaiKhoan">Bạn chưa có tài khoản?</string>
+    <string name="Login_DangKy">Đăng ký</string>
+    <string name="Login_or">or</string>
+    <string name="Login_withGoogle">Tiếp tục với Google</string>
+
+    <string name="SignUp_DangKy">Đăng Ký</string>
+    <string name="SignUp_TenDK">Tên đăng ký</string>
+    <string name="SignUp_XacNhanMK">Xác nhận mật khẩu</string>
+    <string name="SignUp_MatKhau">Mật khẩu</string>
+    <string name="SignUp_DaCoTK">Bạn đã có tài khoản?</string>
+
+    <string name="Dialog_DangXacMinh">Đang xác minh thông tin</string>
+    <string name="Dialog_VuiLongDoi">Vui lòng đợi giây lát…</string>
+
+    <string name="Reset_MK">Quên mật khẩu</string>
+    <string name="Reset_XacNhan">Xác Nhận</string>
+    <string name="Reset_cachkhac">Bạn không thể xác thực bằng email?</string>
+    <string name="Reset_HuongDan">* Vui lòng nhập email của bạn để cập nhật lại mật khẩu.</string>
+
+    <string name="ResetOther_Tieude">Lỗi: Không thể xác thực bằng email</string>
+    <string name="ResetOther_KhongThe">Không thể xác thực email</string>
+    <string name="ResetOther_NoiDung">Rất tiếc, chúng tôi không thể cấp lại mật khẩu cho bạn mà không xác thực email. Vui lòng liên hệ admin để hỗ trợ.</string>
+    <string name="ResetOther_EmailLienHe">Emai liên hệ</string>
+    <string name="ResetOther_Email">taivovan663@gmail.com</string>
+    <string name="ResetOther_QuayLaiDangNhap">Quay lại đăng nhập</string>
+
+    <string name="default_web_client_id">283506068287-gsc1t74t89pc4kpq03ju5darqshhi514.apps.googleusercontent.com</string>
+
+    <string name="Customize_Title">Thêm vào giỏ hàng</string>
+    <string name="Customize_ChonSize">Chọn size</string>
+    <string name="Customize_TenSize">Size lớn</string>
+    <string name="Customize_Price">180000</string>
+    <string name="Customize_TuyChon">Tùy chọn khẩu vị</string>
+    <string name="Customize_Soluong">Số lượng:</string>
+    <string name="Customize_TongCong">Tổng cộng:</string>
+    <string name="Customize_Gia">0đ</string>
+    <string name="Customize_ThemVaoGio">Thêm vào giỏ hàng 0đ</string>
+
+    <string name="ShoppingCartTemporary_Tc">Tổng cộng</string>
+    <string name="ShoppingCartTemporary_TongCong">0đ</string>
+    <string name="ShoppingCartTemporary_TienHanh">Tiến hành thanh toán</string>
+    <string name="CustomInformation_Tieude">Chỉnh sửa địa chỉ</string>
+    <string name="CustomInformation_lienhe">Thông tin liên hệ</string>
+    <string name="CustomInformation_Diachi">Thông tin địa chỉ</string>
+    <string name="CustomInformation_VietNam">Việt Nam</string>
+    <string name="CustomInformation_HoTen">Họ và tên</string>
+    <string name="CustomInformation_Sdt">Nhập số điên thoại hợp lệ</string>
+    <string name="CustomInformation_diachi">Nhập thông tin địa chỉ để nhận hàng</string>
+    <string name="CustomInformation_XacNhan">Xác nhận</string>
+
+
+
+    <string-array name="arrayTinh">
+        <item>	Hồ Chí Minh	</item>
+        <item>	Gia Lai	</item>
+        <item>	Hà Nội	</item>
+    </string-array>
+
+    <string-array name="arrayHaNoi">
+        <item>phường Hoàn Kiếm</item>
+        <item>phường Cửa Nam</item>
+        <item>phường Ba Đình</item>
+        <item>phường Ngọc Hà</item>
+        <item>phường Giảng Võ</item>
+        <item>phường Hai Bà Trưng</item>
+        <item>phường Vĩnh Tuy</item>
+        <item>phường Bạch Mai</item>
+        <item>phường Đống Đa</item>
+        <item>phường Kim Liên</item>
+        <item>phường Văn Miếu - Quốc Tử Giám</item>
+        <item>phường Láng</item>
+        <item>phường Ô Chợ Dừa</item>
+        <item>phường Hồng Hà</item>
+        <item>phường Lĩnh Nam</item>
+        <item>phường Hoàng Mai</item>
+        <item>phường Vĩnh Hưng</item>
+        <item>phường Tương Mai</item>
+        <item>phường Định Công</item>
+        <item>phường Hoàng Liệt</item>
+        <item>phường Yên Sở</item>
+        <item>phường Thanh Xuân</item>
+        <item>phường Khương Đình</item>
+        <item>phường Phương Liệt</item>
+        <item>phường Cầu Giấy</item>
+        <item>phường Nghĩa Đô</item>
+        <item>phường Yên Hòa</item>
+        <item>phường Tây Hồ</item>
+        <item>phường Phú Thượng</item>
+        <item>phường Tây Tựu</item>
+        <item>phường Phú Diễn</item>
+        <item>phường Xuân Đỉnh</item>
+        <item>phường Đông Ngạc</item>
+        <item>phường Thượng Cát</item>
+        <item>phường Từ Liêm</item>
+        <item>phường Xuân Phương</item>
+        <item>phường Tây Mỗ</item>
+        <item>phường Đại Mỗ</item>
+        <item>phường Long Biên</item>
+        <item>phường Bồ Đề</item>
+        <item>phường Việt Hưng</item>
+        <item>phường Phúc Lợi</item>
+        <item>phường Hà Đông</item>
+        <item>phường Dương Nội</item>
+        <item>phường Yên Nghĩa</item>
+        <item>phường Phú Lương</item>
+        <item>phường Kiến Hưng</item>
+        <item>xã Thanh Trì</item>
+        <item>xã Đại Thanh</item>
+        <item>xã Nam Phù</item>
+        <item>xã Ngọc Hồi</item>
+        <item>phường Thanh Liệt</item>
+        <item>xã Thượng Phúc</item>
+        <item>xã Thường Tín</item>
+        <item>xã Chương Dương</item>
+        <item>xã Hồng Vân</item>
+        <item>xã Phú Xuyên</item>
+        <item>xã Phượng Dực</item>
+        <item>xã Chuyên Mỹ</item>
+        <item>xã Đại Xuyên</item>
+        <item>xã Thanh Oai</item>
+        <item>xã Bình Minh</item>
+        <item>xã Tam Hưng</item>
+        <item>xã Dân Hòa</item>
+        <item>xã Vân Đình</item>
+        <item>xã Ứng Thiên</item>
+        <item>xã Hòa Xá</item>
+        <item>xã Ứng Hòa</item>
+        <item>xã Mỹ Đức</item>
+        <item>xã Hồng Sơn</item>
+        <item>xã Phúc Sơn</item>
+        <item>xã Hương Sơn</item>
+        <item>phường Chương Mỹ</item>
+        <item>xã Phú Nghĩa</item>
+        <item>xã Xuân Mai</item>
+        <item>xã Trần Phú</item>
+        <item>xã Hòa Phú</item>
+        <item>xã Quảng Bị</item>
+        <item>xã Minh Châu</item>
+        <item>xã Quảng Oai</item>
+        <item>xã Vật Lại</item>
+        <item>xã Cổ Đô</item>
+        <item>xã Bất Bạt</item>
+        <item>xã Suối Hai</item>
+        <item>xã Ba Vì</item>
+        <item>xã Yên Bài</item>
+        <item>phường Sơn Tây</item>
+        <item>phường Tùng Thiện</item>
+        <item>xã Đoài Phương</item>
+        <item>xã Phúc Thọ</item>
+        <item>xã Phúc Lộc</item>
+        <item>xã Hát Môn</item>
+        <item>xã Thạch Thất</item>
+        <item>xã Hạ Bằng</item>
+        <item>xã Tây Phương</item>
+        <item>xã Hòa Lạc</item>
+        <item>xã Yên Xuân</item>
+        <item>xã Quốc Oai</item>
+        <item>xã Hưng Đạo</item>
+        <item>xã Kiều Phú</item>
+        <item>xã Phú Cát</item>
+        <item>xã Hoài Đức</item>
+        <item>xã Dương Hòa</item>
+        <item>xã Sơn Đồng</item>
+        <item>xã An Khánh</item>
+        <item>xã Đan Phượng</item>
+        <item>xã Ô Diên</item>
+        <item>xã Liên Minh</item>
+        <item>xã Gia Lâm</item>
+        <item>xã Thuận An</item>
+        <item>xã Bát Tràng</item>
+        <item>xã Phù Đổng</item>
+        <item>xã Thư Lâm</item>
+        <item>xã Đông Anh</item>
+        <item>xã Phúc Thịnh</item>
+        <item>xã Thiên Lộc</item>
+        <item>xã Vĩnh Thanh</item>
+        <item>xã Mê Linh</item>
+        <item>xã Yên Lãng</item>
+        <item>xã Tiến Thắng</item>
+        <item>xã Quang Minh</item>
+        <item>xã Sóc Sơn</item>
+        <item>xã Đa Phúc</item>
+        <item>xã Nội Bài</item>
+        <item>xã Trung Giã</item>
+        <item>xã Kim Anh</item>
+    </string-array>
+
+    <string-array name="arrayGiaLai">
+        <item>phường Quy Nhơn</item>
+        <item>phường Quy Nhơn Đông</item>
+        <item>phường Quy Nhơn Tây</item>
+        <item>phường Quy Nhơn Nam</item>
+        <item>phường Quy Nhơn Bắc</item>
+        <item>xã Nhơn Châu</item>
+        <item>phường Bình Định</item>
+        <item>phường An Nhơn</item>
+        <item>phường An Nhơn Đông</item>
+        <item>xã An Nhơn Tây</item>
+        <item>phường An Nhơn Nam</item>
+        <item>phường An Nhơn Bắc</item>
+        <item>phường Bồng Sơn</item>
+        <item>phường Hoài Nhơn</item>
+        <item>phường Tam Quan</item>
+        <item>phường Hoài Nhơn Đông</item>
+        <item>phường Hoài Nhơn Tây</item>
+        <item>phường Hoài Nhơn Nam</item>
+        <item>phường Hoài Nhơn Bắc</item>
+        <item>xã Phù Cát</item>
+        <item>xã Xuân An</item>
+        <item>xã Ngô Mây</item>
+        <item>xã Cát Tiến</item>
+        <item>xã Đề Gi</item>
+        <item>xã Hòa Hội</item>
+        <item>xã Hội Sơn</item>
+        <item>xã Phù Mỹ</item>
+        <item>xã An Lương</item>
+        <item>xã Bình Dương</item>
+        <item>xã Phù Mỹ Đông</item>
+        <item>xã Phù Mỹ Tây</item>
+        <item>xã Phù Mỹ Nam</item>
+        <item>xã Phù Mỹ Bắc</item>
+        <item>xã Tuy Phước</item>
+        <item>xã Tuy Phước Đông</item>
+        <item>xã Tuy Phước Tây</item>
+        <item>xã Tuy Phước Bắc</item>
+        <item>xã Tây Sơn</item>
+        <item>xã Bình Khê</item>
+        <item>xã Bình Phú</item>
+        <item>xã Bình Hiệp</item>
+        <item>xã Hoài Ân</item>
+        <item>xã Ân Tường</item>
+        <item>xã Kim Sơn</item>
+        <item>xã Vạn Đức</item>
+        <item>xã Ân Hảo</item>
+        <item>xã Vân Canh</item>
+        <item>xã Canh Vinh</item>
+        <item>xã Canh Liên</item>
+        <item>xã Vĩnh Thạnh</item>
+        <item>xã Vĩnh Thịnh</item>
+        <item>xã Vĩnh Quang</item>
+        <item>xã Vĩnh Sơn</item>
+        <item>xã An Hòa</item>
+        <item>xã An Lão</item>
+        <item>xã An Vinh</item>
+        <item>xã An Toàn</item>
+        <item>xã Bình An</item>
+        <item>phường Pleiku</item>
+        <item>phường Hội Phú</item>
+        <item>phường Thống Nhất</item>
+        <item>phường Diên Hồng</item>
+        <item>phường An Phú</item>
+        <item>xã Biển Hồ</item>
+        <item>xã Gào</item>
+        <item>xã Ia Ly</item>
+        <item>xã Chư Păh</item>
+        <item>xã Ia Khươl</item>
+        <item>xã Ia Phí</item>
+        <item>xã Chư Prông</item>
+        <item>xã Bàu Cạn</item>
+        <item>xã Ia Boòng</item>
+        <item>xã Ia Lâu</item>
+        <item>xã Ia Pia</item>
+        <item>xã Ia Tôr</item>
+        <item>xã Chư Sê</item>
+        <item>xã Bờ Ngoong</item>
+        <item>xã Ia Ko</item>
+        <item>xã AlBá</item>
+        <item>xã Chư Pưh</item>
+        <item>xã Ia Le</item>
+        <item>xã Ia Hrú</item>
+        <item>phường An Khê</item>
+        <item>phường An Bình</item>
+        <item>xã Cửu An</item>
+        <item>xã Đak Pơ</item>
+        <item>xã Ya Hội</item>
+        <item>xã Kbang</item>
+        <item>xã Kông Bơ La</item>
+        <item>xã Tơ Tung</item>
+        <item>xã Sơn Lang</item>
+        <item>xã Đak Rong</item>
+        <item>xã Kông Chro</item>
+        <item>xã Ya Ma</item>
+        <item>xã Chư Krey</item>
+        <item>xã SRó</item>
+        <item>xã Đăk Song</item>
+        <item>xã Chơ Long</item>
+        <item>phường Ayun Pa</item>
+        <item>xã Ia Rbol</item>
+        <item>xã Ia Sao</item>
+        <item>xã Phú Thiện</item>
+        <item>xã Chư A Thai</item>
+        <item>xã Ia Hiao</item>
+        <item>xã Pờ Tó</item>
+        <item>xã Ia Pa</item>
+        <item>xã Ia Tul</item>
+        <item>xã Phú Túc</item>
+        <item>xã Ia HDreh</item>
+        <item>xã Ia Rsai</item>
+        <item>xã Uar</item>
+        <item>xã Đak Đoa</item>
+        <item>xã Kon Gang</item>
+        <item>xã Ia Băng</item>
+        <item>xã KDang</item>
+        <item>xã Đak Sơmei</item>
+        <item>xã Mang Yang</item>
+        <item>xã Lơ Pang</item>
+        <item>xã Kon Chiêng</item>
+        <item>xã Hra</item>
+        <item>xã Ayun</item>
+        <item>xã Ia Grai</item>
+        <item>xã Ia Krái</item>
+        <item>xã Ia Hrung</item>
+        <item>xã Đức Cơ</item>
+        <item>xã Ia Dơk</item>
+        <item>xã Ia Krêl</item>
+        <item>xã Ia O</item>
+        <item>xã Ia Púch</item>
+        <item>xã Ia Mơ</item>
+        <item>xã Ia Pnôn</item>
+        <item>xã Ia Nan</item>
+        <item>xã Ia Dom</item>
+        <item>xã Ia Chia</item>
+        <item>xã Krong</item>
+    </string-array>
+
+    <string-array name="arrayHoChiMinh">
+        <item>phường Sài Gòn</item>
+        <item>phường Tân Định</item>
+        <item>phường Bến Thành</item>
+        <item>phường Cầu Ông Lãnh</item>
+        <item>phường Bàn Cờ</item>
+        <item>phường Xuân Hòa</item>
+        <item>phường Nhiêu Lộc</item>
+        <item>phường Xóm Chiếu</item>
+        <item>phường Khánh Hội</item>
+        <item>phường Vĩnh Hội</item>
+        <item>phường Chợ Quán</item>
+        <item>phường An Đông</item>
+        <item>phường Chợ Lớn</item>
+        <item>phường Bình Tây</item>
+        <item>phường Bình Tiên</item>
+        <item>phường Bình Phú</item>
+        <item>phường Phú Lâm</item>
+        <item>phường Tân Thuận</item>
+        <item>phường Phú Thuận</item>
+        <item>phường Tân Mỹ</item>
+        <item>phường Tân Hưng</item>
+        <item>phường Chánh Hưng</item>
+        <item>phường Phú Định</item>
+        <item>phường Bình Đông</item>
+        <item>phường Diên Hồng</item>
+        <item>phường Vườn Lài</item>
+        <item>phường Hòa Hưng</item>
+        <item>phường Minh Phụng</item>
+        <item>phường Bình Thới</item>
+        <item>phường Hòa Bình</item>
+        <item>phường Phú Thọ</item>
+        <item>phường Đông Hưng Thuận</item>
+        <item>phường Trung Mỹ Tây</item>
+        <item>phường Tân Thới Hiệp</item>
+        <item>phường Thới An</item>
+        <item>phường An Phú Đông</item>
+        <item>phường An Lạc</item>
+        <item>phường Bình Tân</item>
+        <item>phường Tân Tạo</item>
+        <item>phường Bình Trị Đông</item>
+        <item>phường Bình Hưng Hòa</item>
+        <item>phường Gia Định</item>
+        <item>phường Bình Thạnh</item>
+        <item>phường Bình Lợi Trung</item>
+        <item>phường Thạnh Mỹ Tây</item>
+        <item>phường Bình Quới</item>
+        <item>phường Hạnh Thông</item>
+        <item>phường An Nhơn</item>
+        <item>phường Gò Vấp</item>
+        <item>phường An Hội Đông</item>
+        <item>phường Thông Tây Hội</item>
+        <item>phường An Hội Tây</item>
+        <item>phường Đức Nhuận</item>
+        <item>phường Cầu Kiệu</item>
+        <item>phường Phú Nhuận</item>
+        <item>phường Tân Sơn Hòa</item>
+        <item>phường Tân Sơn Nhất</item>
+        <item>phường Tân Hòa</item>
+        <item>phường Bảy Hiền</item>
+        <item>phường Tân Bình</item>
+        <item>phường Tân Sơn</item>
+        <item>phường Tây Thạnh</item>
+        <item>phường Tân Sơn Nhì</item>
+        <item>phường Phú Thọ Hòa</item>
+        <item>phường Tân Phú</item>
+        <item>phường Phú Thạnh</item>
+        <item>phường Hiệp Bình</item>
+        <item>phường Thủ Đức</item>
+        <item>phường Tam Bình</item>
+        <item>phường Linh Xuân</item>
+        <item>phường Tăng Nhơn Phú</item>
+        <item>phường Long Bình</item>
+        <item>phường Long Phước</item>
+        <item>phường Long Trường</item>
+        <item>phường Cát Lái</item>
+        <item>phường Bình Trưng</item>
+        <item>phường Phước Long</item>
+        <item>phường An Khánh</item>
+        <item>phường Đông Hòa</item>
+        <item>phường Dĩ An</item>
+        <item>phường Tân Đông Hiệp</item>
+        <item>phường An Phú</item>
+        <item>phường Bình Hòa</item>
+        <item>phường Lái Thiêu</item>
+        <item>phường Thuận An</item>
+        <item>phường Thuận Giao</item>
+        <item>phường Thủ Dầu Một</item>
+        <item>phường Phú Lợi</item>
+        <item>phường Chánh Hiệp</item>
+        <item>phường Bình Dương</item>
+        <item>phường Hòa Lợi</item>
+        <item>phường Phú An</item>
+        <item>phường Tây Nam</item>
+        <item>phường Long Nguyên</item>
+        <item>phường Bến Cát</item>
+        <item>phường Chánh Phú Hòa</item>
+        <item>phường Vĩnh Tân</item>
+        <item>phường Bình Cơ</item>
+        <item>phường Tân Uyên</item>
+        <item>phường Tân Hiệp</item>
+        <item>phường Tân Khánh</item>
+        <item>phường Vũng Tàu</item>
+        <item>phường Tam Thắng</item>
+        <item>phường Rạch Dừa</item>
+        <item>phường Phước Thắng</item>
+        <item>phường Long Hương</item>
+        <item>phường Bà Rịa</item>
+        <item>phường Tam Long</item>
+        <item>phường Tân Hải</item>
+        <item>phường Tân Phước</item>
+        <item>phường Phú Mỹ</item>
+        <item>phường Tân Thành</item>
+        <item>xã Vĩnh Lộc</item>
+        <item>xã Tân Vĩnh Lộc</item>
+        <item>xã Bình Lợi</item>
+        <item>xã Tân Nhựt</item>
+        <item>xã Bình Chánh</item>
+        <item>xã Hưng Long</item>
+        <item>xã Bình Hưng</item>
+        <item>xã Bình Khánh</item>
+        <item>xã An Thới Đông</item>
+        <item>xã Cần Giờ</item>
+        <item>xã Củ Chi</item>
+        <item>xã Tân An Hội</item>
+        <item>xã Thái Mỹ</item>
+        <item>xã An Nhơn Tây</item>
+        <item>xã Nhuận Đức</item>
+        <item>xã Phú Hòa Đông</item>
+        <item>xã Bình Mỹ</item>
+        <item>xã Đông Thạnh</item>
+        <item>xã Hóc Môn</item>
+        <item>xã Xuân Thới Sơn</item>
+        <item>xã Bà Điểm</item>
+        <item>xã Nhà Bè</item>
+        <item>xã Hiệp Phước</item>
+        <item>xã Thường Tân</item>
+        <item>xã Bắc Tân Uyên</item>
+        <item>xã Phú Giáo</item>
+        <item>xã Phước Hòa</item>
+        <item>xã Phước Thành</item>
+        <item>xã An Long</item>
+        <item>xã Trừ Văn Thố</item>
+        <item>xã Bàu Bàng</item>
+        <item>xã Long Hòa</item>
+        <item>xã Thanh An</item>
+        <item>xã Dầu Tiếng</item>
+        <item>xã Minh Thạnh</item>
+        <item>xã Châu Pha</item>
+        <item>xã Long Hải</item>
+        <item>xã Long Điền</item>
+        <item>xã Phước Hải</item>
+        <item>xã Đất Đỏ</item>
+        <item>xã Nghĩa Thành</item>
+        <item>xã Ngãi Giao</item>
+        <item>xã Kim Long</item>
+        <item>xã Châu Đức</item>
+        <item>xã Bình Giã</item>
+        <item>xã Xuân Sơn</item>
+        <item>xã Hồ Tràm</item>
+        <item>xã Xuyên Mộc</item>
+        <item>xã Hòa Hội</item>
+        <item>xã Bàu Lâm</item>
+        <item>đặc khu Côn Đảo</item>
+        <item>xã Bình Châu</item>
+        <item>xã Hòa Hiệp</item>
+        <item>xã Long Sơn</item>
+        <item>xã Thạnh An</item>
+        <item>phường Thới Hòa</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/nav_home">
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.foodorderapp.view.ui.home.HomeFragment"
+        android:label="Trang chủ"
+        tools:layout="@layout/fragment_home"/>
+    <fragment
+            android:id="@+id/nav_order"
+        android:name="com.example.foodorderapp.view.ui.order.OrderFragment"
+        android:label="Đơn hàng"
+        tools:layout="@layout/fragment_order"
+        />
+    <fragment
+        android:id="@+id/nav_shoppingcart"
+        android:name="com.example.foodorderapp.view.ui.shoppingcart.ShoppingCartFragment"
+        android:label="Giỏ hàng"
+        tools:layout="@layout/fragment_shopping_cart"
+        />
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.example.foodorderapp.view.ui.account.AccountFragment"
+        android:label="Tài khoản"
+        tools:layout="@layout/fragment_account"
+        />
+    <fragment
+        android:id="@+id/fragment_Promtion"
+        android:name="com.example.foodorderapp.view.ui.home.promotion.FragmentPromotion"
+        android:label="Khuyến mãi"
+        tools:layout="@layout/fragment_promotion"
+        />
+    <fragment
+        android:id="@+id/fragmentQuanAn"
+        android:name="com.example.foodorderapp.view.ui.home.fragment_quan_an.fragment_item_quan_an"
+        android:label="Quán Ăn"
+        tools:layout="@layout/fragment_item_quan_an"/>
+    <fragment
+        android:id="@+id/fragmentFoodIcon"
+        android:name="com.example.foodorderapp.view.ui.home.fragment_monan.fragment_food_icon"
+        android:label="Danh sách món ăn Icon"
+        tools:layout="@layout/fragment_food_icon"
+        >
+        <argument
+            android:name="categoryType"
+            app:argType="string"
+            android:defaultValue="burger"/>
+        <argument
+            android:name="nameFood"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentCustomizeFood"
+        android:name="com.example.foodorderapp.view.ui.shoppingcart.custom.FragmentCustomizeFood"
+        android:label="Tùy chỉnh món ăn khi thêm vào giỏ">
+        <argument
+            android:name="foodId"
+            app:argType="string"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentCustomInformation"
+        android:name="com.example.foodorderapp.view.ui.shoppingcart.FragmentCustomInformation"
+        android:label="fragmentTùy chỉnh thông tin User"
+        />
+
+    <action android:id="@+id/action_fragmentQuanAn_to_fragmentCustomizeFood"
+        app:destination="@+id/fragmentCustomizeFood"/>
+    <action
+         android:id="@+id/action_fragmentCustomeizeFood_to_fragmentQuanAn"
+        app:destination="@+id/fragmentQuanAn"/>
+
+    <action android:id="@+id/action_homeFragment_to_fragmentFoodIcon"
+        app:destination="@+id/fragmentFoodIcon"/>
+    <action
+        android:id="@+id/action_fragmentFoodIcon_to_homeFragment"
+        app:destination="@+id/nav_home"/>
+
+    <action
+            android:id="@+id/action_fragmentQuanAn_to_homeFragment"
+            app:destination="@+id/nav_home"/>
+
+    <action
+        android:id="@+id/action_homeFragment_to_fragmentQuanAn"
+        app:destination="@+id/fragmentQuanAn"/>
+
+    <action
+        android:id="@+id/action_fragmentPromotion_to_homeFragment"
+        app:destination="@id/nav_home" />
+    <action android:id="@+id/action_frgamentCustomInformtion_to_fragmentShopping"
+        app:destination="@+id/nav_shoppingcart"/>
+
+</navigation>

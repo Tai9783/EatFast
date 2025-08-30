@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_login"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.ui.account.login.FragmentLogin"
+    android:paddingStart="25dp"
+    android:paddingEnd="25dp">
+
+    <ImageView
+        android:id="@+id/imagLogoApp"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentThongTin"
+        android:src="@drawable/logo_app"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/motaanh"
+        android:background="?android:colorBackground"/>
+    <FrameLayout
+        android:id="@+id/fragmentThongTin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagLogoApp"
+       android:layout_marginTop="5dp"
+        >
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutThongTin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bacground_login"
+            android:padding="15dp"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:id="@+id/txtDangKy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/SignUp_DangKy"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="5dp"/>
+
+            <EditText
+                android:id="@+id/edtTenDK"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="30dp"
+                android:autofillHints="username"
+                android:background="@drawable/background_o_nhap_thong_tin"
+                android:hint="@string/SignUp_TenDK"
+                android:inputType="text"
+                android:paddingStart="15dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDangKy" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="30dp"
+                android:autofillHints="emailAddress"
+                android:background="@drawable/background_o_nhap_thong_tin"
+                android:hint="@string/Login_Email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="15dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtTenDK" />
+            <EditText
+                android:id="@+id/edtMatKhau"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="30dp"
+                android:autofillHints="password"
+                android:background="@drawable/background_o_nhap_thong_tin"
+                android:hint="@string/SignUp_MatKhau"
+                android:inputType="textPassword"
+                android:paddingStart="15dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+            <EditText
+                android:id="@+id/edtXacNhanMK"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="30dp"
+                android:autofillHints="password"
+                android:background="@drawable/background_o_nhap_thong_tin"
+                android:hint="@string/SignUp_XacNhanMK"
+                android:inputType="textPassword"
+                android:paddingStart="15dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtMatKhau" />
+
+
+            <TextView
+                android:id="@+id/txtDangNhap"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/background_o_nhap_thong_tin"
+                android:backgroundTint="#1F9B21"
+                android:gravity="center"
+                android:text="@string/SignUp_DangKy"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtXacNhanMK" />
+
+            <LinearLayout
+                android:id="@+id/layoutThongTinTaiKhoan"
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDangNhap">
+
+                <TextView
+                    android:id="@+id/txtChuaTaiKhoan"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="@string/Login_ChuaCoTaiKhoan"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txtDangKy1"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/Login_DangNhap"
+                    android:textColor="#278C1C"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imgAnhDoAn"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="@string/motaanh"
+            android:src="@drawable/login_doan_trangtri"
+            android:layout_gravity="top|center"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="-15dp"
+            />
+        <ImageView
+            android:id="@+id/imgIconDoAn"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="@string/motaanh"
+            android:src="@drawable/login_icondoantrangtri"
+            android:layout_gravity="top|end"
+
+            />
+    </FrameLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

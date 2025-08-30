@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+tools:context=".view.ui.shoppingcart.ShoppingCartTemporary"
+android:paddingStart="18dp"
+android:paddingEnd="18dp"
+android:paddingBottom="20dp"
+android:fitsSystemWindows="true"
+    >
+<TextView
+    android:id="@+id/txtTieDeGioHang"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:text="@string/shoppingcart_tieude_giohang"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:gravity="center"/>
+    <ImageView
+        android:id="@+id/iconThoat"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/icon_close"
+        android:padding="10dp"
+        android:contentDescription="@string/motaanh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="?attr/selectableItemBackground"/>
+<ProgressBar
+    android:id="@+id/progressBar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:visibility="gone"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTieDeGioHang"
+        android:background="#E6E6E6"
+        android:layout_marginTop="10dp"/>
+
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rvMonAn"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/view"
+    app:layout_constraintBottom_toTopOf="@+id/view2"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp"
+    />
+
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/txtTc"
+        android:background="#E6E6E6"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"/>
+
+<TextView
+    android:id="@+id/txtTc"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/txtTienHanh"
+    android:layout_marginBottom="15dp"
+    android:text="@string/ShoppingCartTemporary_Tc"
+    android:textSize="18sp"/>
+    <TextView
+        android:id="@+id/txtTongCong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/txtTienHanh"
+        android:layout_marginBottom="15dp"
+        android:text="@string/ShoppingCartTemporary_TongCong"
+        android:textSize="18sp"
+        android:textColor="#1C8015"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txtTienHanh"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/ShoppingCartTemporary_TienHanh"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/shoppingcart_bacground_giamgia"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="#1C8015"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

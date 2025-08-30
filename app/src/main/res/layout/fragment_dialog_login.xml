@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.ui.account.dialog.FragmentDialogLogin"
+    android:padding="30dp"
+    android:background="@drawable/bg_dialog_login">
+    
+    <ImageView
+        android:id="@+id/imgAnimation"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/motaanh"
+        android:src="@drawable/login_doan_trangtri"/>
+
+    <View
+        android:id="@+id/splashEffectView"
+        android:layout_width="60dp"
+        android:layout_height="3dp"
+        android:background="@drawable/bg_splash_effect"
+        app:layout_constraintStart_toStartOf="@id/imgAnimation"
+        app:layout_constraintEnd_toEndOf="@+id/imgAnimation"
+        app:layout_constraintTop_toBottomOf="@id/imgAnimation"
+        android:layout_marginTop="-20dp"/>
+    <ProgressBar
+        android:id="@+id/load"
+        android:layout_gravity="center"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:indeterminateTint="@android:color/holo_green_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/splashEffectView"
+        android:indeterminate="true"
+        android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/txtDangXacMinh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/load"
+        android:text="@string/Dialog_DangXacMinh"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/txtVuiLongDoi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDangXacMinh"
+        android:text="@string/Dialog_VuiLongDoi"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:textColor="#767676"
+       />
+
+
+    <LinearLayout
+        android:id="@+id/loadingDots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtVuiLongDoi"
+        android:layout_marginTop="20dp">
+
+        <View
+            android:id="@+id/dot1"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/dot_circle_anim"
+            android:layout_margin="4dp"
+            />
+        <View
+            android:id="@+id/dot2"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/dot_circle_anim"
+            android:layout_margin="4dp"
+            />
+        <View
+            android:id="@+id/dot3"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/dot_circle_anim"
+            android:layout_margin="4dp"
+            />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

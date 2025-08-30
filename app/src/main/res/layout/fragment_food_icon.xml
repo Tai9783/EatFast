@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragmentFoodIcon"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ui.home.fragment_monan.fragment_food_icon"
+    android:paddingStart="18dp"
+    android:paddingEnd="18dp">
+
+    <LinearLayout
+        android:id="@+id/layoutDsMonAn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/txtTieuDe_MonAn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ItemMoAn_TieuDe_MonAn"
+            android:textSize="25sp"
+            app:drawableStartCompat="@drawable/promotion_icon_quaylai"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/judson_regular"
+            android:background="?attr/selectableItemBackground"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDsMonAn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+</FrameLayout>

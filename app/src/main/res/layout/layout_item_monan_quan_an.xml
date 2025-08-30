@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bacground_item_monan_quanan"
+    android:padding="10dp">
+
+    <FrameLayout
+        android:id="@+id/fragment_AnhMonAn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/carviewAnhMonAn"
+            android:layout_width="145dp"
+            android:layout_height="133dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"> <!--xét độ cao của carview về 0 để bằng với các view khác nếu không nó cao hơn thì sẽ che mất các view khác-->
+            <ImageView
+                android:id="@+id/imgAnhMonAn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/motaanh"
+                android:src="@drawable/burger_ga_ngon"
+                android:scaleType="fitXY"/>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imgIconYeuThich"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:contentDescription="@string/motaanh"
+            android:src="@drawable/icon_yeuthich"
+            android:layout_gravity="top|end"
+            app:tint="#FFFFFF"
+            android:layout_margin="10dp"/>
+
+    </FrameLayout>
+
+        <TextView
+        android:id="@+id/txtTenMonAn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_AnhMonAn"
+        android:text="@string/ItemMonAn_TenMonAn"
+        android:textSize="19sp"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/txtSoLuotMua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTenMonAn"
+        android:text="@string/ItemMonAn_TongLuotMua"
+        android:textSize="17sp"
+        android:textColor="#8E8E8E"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/txtGiaMonAn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSoLuotMua"
+        android:text="@string/ItemMonAn_GiaMonAn"
+        android:textSize="20sp"
+        android:textColor="#1C8015"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/imgGioHang"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:contentDescription="@string/motaanh"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSoLuotMua"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/icon_addshoppingcart"
+        app:tint="#757474"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

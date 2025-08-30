@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CartSideDialogTheme" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="CartSideDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_left_shoppingcart_temorary</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_left_shoppingcart_temporary</item>
+    </style>
+
+
+</resources>
