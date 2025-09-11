@@ -15,6 +15,9 @@ class ViewModelGetInforUser() : ViewModel() {
     private val _theoDoiEmail= MutableLiveData<String>()
     val theoDoiEmail :LiveData<String> get()=_theoDoiEmail
 
+    private val _updateInforUser= MutableLiveData<Boolean?>()
+    val updateInforUser :LiveData<Boolean?> get()=_updateInforUser
+
     fun getInforUser(email:String){
         Log.d("ViewModel","đang chuẩn bị đưa $email vào firestore để tìm")
         FirebaseReposityGetInforUser().getInforUser(email){newInforUser->
@@ -26,6 +29,24 @@ class ViewModelGetInforUser() : ViewModel() {
     }
     fun setEmail(email:String){
         _theoDoiEmail.value=email
+    }
+
+    fun updateInforUser(item: InforUser) {
+            FirebaseReposityGetInforUser().updateInforUser(item){isCheck->
+                if(isCheck) {
+                    Log.d("ViewModelGetInforUser", "Cập nhật thành công")
+                    _theodoiInforUser.value = item
+                    _updateInforUser.value=true
+                }
+                else {
+                    Log.d("ViewModelGetInforUser", "Cập nhật thất bại")
+                    _updateInforUser.value=false
+                }
+            }
+    }
+
+    fun resetUpdateState(){
+        _updateInforUser.value=null
     }
 
 

@@ -64,7 +64,7 @@ class HomeFragment : Fragment() {
                 Log.d("HomeFragment","Lấy đuọc Seller có id ${shop.sellerId}")
                 shareViewModelSellerId.setSellerId(shop.sellerId)
                     (requireActivity() as MainActivity).setNavagationBarBottom(false)
-                    findNavController().navigate(R.id.fragmentQuanAn)
+                    findNavController().navigate(R.id.action_homeFragment_to_fragmentQuanAn)
 
             }
         })

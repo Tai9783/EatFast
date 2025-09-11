@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ui.shoppingcart.FragmentOrderSummary">
+
+    <TextView
+        android:id="@+id/txtTieuDe"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="@string/OrderSummary_Title"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgThoat"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="5dp"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@string/motaanh"
+        android:padding="8dp"
+        android:src="@drawable/promotion_icon_quaylai"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D1D1D1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTieuDe" />
+
+    <ScrollView
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view1">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iconAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:contentDescription="@string/motaanh"
+                android:src="@drawable/order_danggiao_diadiem"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtName_Phone_User"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/OrderSummary_NameUser"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/iconAddress"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtStreet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/OrderSummary_Street"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/iconAddress"
+                app:layout_constraintTop_toBottomOf="@+id/txtName_Phone_User" />
+
+            <TextView
+                android:id="@+id/txtRegion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/OrderSummary_Region"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/iconAddress"
+                app:layout_constraintTop_toBottomOf="@+id/txtStreet" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="#D1D1D1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtRegion" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+            <TextView
+                android:id="@+id/txtSubtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/OrderSummary_Subtotal"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvFood" />
+
+            <TextView
+                android:id="@+id/txtOriginalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/OrderSummary_OriginalPrice"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSubtotal" />
+
+            <TextView
+                android:id="@+id/OriginalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:text="@string/OrderSummary_Gia"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSubtotal" />
+
+            <TextView
+                android:id="@+id/txtVoucher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/OrderSummary_Voucher"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtOriginalPrice" />
+
+            <TextView
+                android:id="@+id/Voucher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:text="@string/OrderSummary_Gia"
+                android:textColor="#1C8015"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/OriginalPrice" />
+
+            <TextView
+                android:id="@+id/txtSubtotalShippingFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/OrderSummary_SubtotalShippingFee"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtVoucher" />
+
+            <TextView
+                android:id="@+id/txtShippingFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/OrderSummary_ShippingFee"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSubtotalShippingFee" />
+
+            <TextView
+                android:id="@+id/ShippingFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:text="@string/OrderSummary_Gia"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSubtotalShippingFee" />
+
+            <TextView
+                android:id="@+id/txtVoucherShippping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/OrderSummary_VoucherShipping"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtShippingFee" />
+
+            <TextView
+                android:id="@+id/VoucherShippping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:text="@string/OrderSummary_Gia"
+                android:textColor="#1C8015"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtShippingFee" />
+
+            <TextView
+                android:id="@+id/txtPaymentMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/OrderSummary_txtPaymentMethod"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtVoucherShippping" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutCOD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPaymentMethod">
+
+                <ImageView
+                    android:id="@+id/imgCod"
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:contentDescription="@string/motaanh"
+                    android:src="@drawable/anh_cod"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/cashOnDelivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/OrderSummary_txtCashOnDelivery"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgCod"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RadioButton
+                    android:id="@+id/rdbCod"
+                    android:layout_width="26dp"
+                    android:layout_height="23dp"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutZalopay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutCOD">
+
+                <ImageView
+                    android:id="@+id/imgZalopay"
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:contentDescription="@string/motaanh"
+                    android:src="@drawable/anh_icon_zalopay"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtZalopay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/OrderSummary_Zalopay"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgZalopay"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RadioButton
+                    android:id="@+id/rdbZalopay"
+                    android:layout_width="26dp"
+                    android:layout_height="23dp"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutMomo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutZalopay">
+
+                <ImageView
+                    android:id="@+id/imgMomo"
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:contentDescription="@string/motaanh"
+                    android:padding="2dp"
+                    android:src="@drawable/anh_momo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtMomo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/OrderSummary_Momo"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgMomo"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RadioButton
+                    android:id="@+id/rdbMomo"
+                    android:layout_width="26dp"
+                    android:layout_height="23dp"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="15dp"
+        android:background="#D1D1D1"
+        app:layout_constraintBottom_toTopOf="@+id/txtTotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/OrderSummary_txtTotal"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btnOrder"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtQuantityFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/OrderSummary_txtQuantityFood"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnOrder"
+        app:layout_constraintStart_toEndOf="@+id/txtTotal" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/OrderSummary_Gia"
+        android:textColor="#1C8015"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnOrder"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/bg_button_login"
+        android:text="@string/OrderSummary_Order"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

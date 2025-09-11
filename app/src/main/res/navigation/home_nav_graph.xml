@@ -8,7 +8,13 @@
         android:id="@+id/nav_home"
         android:name="com.example.foodorderapp.view.ui.home.HomeFragment"
         android:label="Trang chủ"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_fragmentQuanAn"
+            app:destination="@+id/fragmentQuanAn"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom"/>
+    </fragment>
     <fragment
             android:id="@+id/nav_order"
         android:name="com.example.foodorderapp.view.ui.order.OrderFragment"
@@ -19,8 +25,19 @@
         android:id="@+id/nav_shoppingcart"
         android:name="com.example.foodorderapp.view.ui.shoppingcart.ShoppingCartFragment"
         android:label="Giỏ hàng"
-        tools:layout="@layout/fragment_shopping_cart"
-        />
+        tools:layout="@layout/fragment_shopping_cart">
+        <action
+            android:id="@+id/action_shoppingCartFragment_to_fragmentCustomInformation"
+            app:destination="@+id/fragmentCustomInformation"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom"/>
+        <action android:id="@+id/action_shoppingCartFragment_to_fragmentOrderSummary"
+            app:destination="@+id/fragmentOrderSummary"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom"/>
+    </fragment>
+
+
     <fragment
         android:id="@+id/nav_account"
         android:name="com.example.foodorderapp.view.ui.account.AccountFragment"
@@ -62,6 +79,11 @@
 
     </fragment>
     <fragment
+        android:id="@+id/fragmentOrderSummary"
+        android:name="com.example.foodorderapp.view.ui.shoppingcart.FragmentOrderSummary"
+        android:label="Tóm tắt đơn hàng"/>
+
+    <fragment
         android:id="@+id/fragmentCustomInformation"
         android:name="com.example.foodorderapp.view.ui.shoppingcart.FragmentCustomInformation"
         android:label="fragmentTùy chỉnh thông tin User"
@@ -79,13 +101,7 @@
         android:id="@+id/action_fragmentFoodIcon_to_homeFragment"
         app:destination="@+id/nav_home"/>
 
-    <action
-            android:id="@+id/action_fragmentQuanAn_to_homeFragment"
-            app:destination="@+id/nav_home"/>
 
-    <action
-        android:id="@+id/action_homeFragment_to_fragmentQuanAn"
-        app:destination="@+id/fragmentQuanAn"/>
 
     <action
         android:id="@+id/action_fragmentPromotion_to_homeFragment"

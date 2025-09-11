@@ -37,4 +37,21 @@ class FirebaseReposityGetInforUser {
                 onCallBack(item)
             }
     }
+
+    fun updateInforUser(item: InforUser,onCallBack: (Boolean) -> Unit) {
+        val userId= item.user_id
+       val docRef= db.document(userId)
+        val updates= mapOf("full_name" to item.full_name,"phone" to item.phone,"address" to item.address)
+        docRef.update(updates)
+            .addOnSuccessListener {
+                Log.d("FirebaseReposityGetInforUser","Cập nhật thành công")
+                onCallBack(true)
+            }
+            .addOnFailureListener {
+                Log.d("FirebaseReposityGetInforUser","Cập nhật thất bại")
+                onCallBack(false)
+            }
+
+
+    }
 }

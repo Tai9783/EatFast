@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -90,9 +91,13 @@ class fragment_item_quan_an : Fragment() {
         rvMonAnShop.addItemDecoration(GridSpacingItemDecoration(2, spacing, true))
 
         iconThoat.setOnClickListener {
-            findNavController().navigate(R.id.action_fragmentQuanAn_to_homeFragment)
+             findNavController().popBackStack()
             (requireActivity() as MainActivity).setNavagationBarBottom(true)
-
+        }
+        //Xử lý nút back của hệ thống
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            findNavController().popBackStack()
+            (requireActivity() as MainActivity).setNavagationBarBottom(true)
         }
 
         // Observe sellerId changes
@@ -139,11 +144,7 @@ class fragment_item_quan_an : Fragment() {
             adapterItemFoodShop.submitList(listFood)
         }
 
-
-
-
         setupDraggableCart(iconCart)
-
 
     }
 

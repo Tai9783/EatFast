@@ -157,6 +157,26 @@
     <string name="CustomInformation_diachi">Nhập thông tin địa chỉ để nhận hàng</string>
     <string name="CustomInformation_XacNhan">Xác nhận</string>
 
+    <string name="OrderSummary_Title">Tóm tắt đơn hàng</string>
+    <string name="OrderSummary_NameUser">Võ Văn Tài(0397589783)</string>
+    <string name="OrderSummary_Street">123 Nguyễn Văn Linh</string>
+    <string name="OrderSummary_Region">phường Tân Bình, Hồ Chí Minh</string>
+    <string name="OrderSummary_Subtotal">Tổng phụ sản phẩm</string>
+    <string name="OrderSummary_OriginalPrice">Giá gốc</string>
+    <string name="OrderSummary_Gia">0đ</string>
+    <string name="OrderSummary_Voucher">Giảm giá</string>
+    <string name="OrderSummary_SubtotalShippingFee">Tổng phụ vận chuyển</string>
+    <string name="OrderSummary_ShippingFee">Phí vận chuyển</string>
+    <string name="OrderSummary_VoucherShipping">Giảm giá phí vận chuyển</string>
+    <string name="OrderSummary_txtPaymentMethod">Phương thức thanh toán</string>
+    <string name="OrderSummary_txtCashOnDelivery">Thanh toán khi nhận hàng</string>
+    <string name= "OrderSummary_Zalopay">Zalopay</string>
+    <string name= "OrderSummary_Momo">Momo</string>
+    <string name="OrderSummary_txtTotal">Tổng</string>
+    <string name="OrderSummary_txtQuantityFood">(0 món)</string>
+    <string name="OrderSummary_Order">Đặt hàng</string>
+
+
 
 
     <string-array name="arrayTinh">

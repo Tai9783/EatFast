@@ -1,5 +1,4 @@
 
-
 plugins {
         // Plugin cho ứng dụng Android
         alias(libs.plugins.android.application)
@@ -9,11 +8,11 @@ plugins {
 
         // Plugin để kích hoạt Google Services (Firebase), nhưng chưa áp dụng ở đây (apply false)
         // Plugin này sẽ được apply thủ công ở cuối file với apply(plugin = "...") để Firebase hoạt động
-        id("com.google.gms.google-services") version "4.4.3" apply false
         alias(libs.plugins.navigation.safeargs) // add dòng này để dùng pthuc truyen du tu fragment sang fragment
         // Kích hoạt annotation processor cho Glide (hoặc các thư viện cần annotation processing)
         id("kotlin-kapt")
-    }
+
+}
 
     android {
         namespace = "com.example.foodorderapp"

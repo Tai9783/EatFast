@@ -13,6 +13,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -89,7 +90,12 @@ class FragmentCustomInformation : Fragment() {
 
         thoat.setOnClickListener {
             (requireActivity() as MainActivity).setNavagationBarBottom(true)
-            findNavController().navigate(R.id.action_frgamentCustomInformtion_to_fragmentShopping)
+            findNavController().popBackStack()
+        }
+        //Xử lý nút back của hệ thống
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            findNavController().popBackStack()
+            (requireActivity() as MainActivity).setNavagationBarBottom(true)
         }
         viewModelGetInforUser.theodoiInforUser.observe(viewLifecycleOwner){newUser->
             val address: String= newUser.address
@@ -105,21 +111,43 @@ class FragmentCustomInformation : Fragment() {
         xacNhan.setOnClickListener {
             val name=nameUser.text.toString()
             val phone= phoneUser.text.toString()
-            val address= thongTinAddress.text.toString()
+            val street= thongTinAddress.text.toString()
             if(name.isEmpty()){
                 Toast.makeText(context,"Họ tên không được rỗng", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if(phone.isEmpty()&& phone.length==10)
+            if(phone.isEmpty()|| phone.length!=10)
             {
                 Toast.makeText(context,"Số điện thoại không hợp lệ",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (address.isEmpty()){
+            if (street.isEmpty()){
                 Toast.makeText(context,"Địa chỉ không được rỗng",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            val address= "$street, ${spinnerPhuongXa.selectedItem}, ${spinnerTinh.selectedItem}"
+            val user= viewModelGetInforUser.theodoiInforUser.value
+            val item= user?.copy(address = address, phone = phone, full_name = name)
+                ?: return@setOnClickListener
 
+            viewModelGetInforUser.updateInforUser(item)
+        }
+        viewModelGetInforUser.updateInforUser.observe(viewLifecycleOwner) { isCheck ->
+            when (isCheck) {
+                true-> {
+                    Toast.makeText(context, "Cập nhật thành công", Toast.LENGTH_SHORT).show()
+                    findNavController().popBackStack()
+                    (requireActivity() as MainActivity).setNavagationBarBottom(true)
+                    viewModelGetInforUser.resetUpdateState()
+                }
+                false-> {
+                Toast.makeText(context, "Cập nhật thất bại", Toast.LENGTH_SHORT).show()
+                    viewModelGetInforUser.resetUpdateState()
+                }
+
+                null -> {
+                }
+            }
         }
 
     }

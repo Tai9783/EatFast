@@ -131,10 +131,11 @@ private lateinit var viewModelGetInforUser: ViewModelGetInforUser
 
         tongTienHang.setOnClickListener {
             Toast.makeText(context,"Bạn đã qua tóm tắt đơn hàng",Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentOrderSummary)
         }
 
         thayDoiThongTin.setOnClickListener {
-            findNavController().navigate(R.id.fragmentCustomInformation)
+            findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentCustomInformation)
         }
     }
 
