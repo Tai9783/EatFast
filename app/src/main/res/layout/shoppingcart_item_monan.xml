@@ -14,6 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:button="@drawable/shoppingcart_selector_item_checkbox"
+        app:buttonTint="@color/bg_radiobutton_green"
        />
     <androidx.cardview.widget.CardView
         android:id="@+id/carviewMonAn"

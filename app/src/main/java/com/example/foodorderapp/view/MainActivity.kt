@@ -81,12 +81,6 @@ class MainActivity : AppCompatActivity() {
     fun setNavagationBarBottom(b: Boolean) {
         binding.bottomNav.visibility= if(b) View.VISIBLE else View.GONE
     }
-    fun backHome(){
-        setNavagationBarBottom(true)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container,HomeFragment())
-            .commit()
-        binding.bottomNav.selectedItemId=R.id.nav_home
-    }
+
 
 }

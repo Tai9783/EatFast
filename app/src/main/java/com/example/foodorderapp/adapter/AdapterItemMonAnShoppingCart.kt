@@ -22,7 +22,7 @@ import com.example.foodorderapp.utils.FormatterMoney
 import com.example.foodorderapp.viewmodel.ViewModelShoppingcart
 
 
-class AdapterItemMonAnShoppingCart(private val viewModelShoppingcart: ViewModelShoppingcart)
+class AdapterItemMonAnShoppingCart(private val viewModelShoppingcart: ViewModelShoppingcart, private val model:String)
             :ListAdapter<FoodItemCart,AdapterItemMonAnShoppingCart.ViewHolder>(
     DiffCallBackItemMonAnShoppingCart()) {
 
@@ -62,41 +62,60 @@ class AdapterItemMonAnShoppingCart(private val viewModelShoppingcart: ViewModelS
             checkBox.setOnCheckedChangeListener(null)
             checkBox.isChecked= item.checkBox
 
-            checkBox.setOnCheckedChangeListener { _, isChecked ->
-                viewModelShoppingcart.isDone(isChecked,item) //xử lý trạng thái ủa checkbox tronng giỏ hàng
-                viewModelShoppingcart.updateTrangThaiChon(item,isChecked)// xem xét và lấy các món ăn được chọn để hiển thị số món ăn tạm tính
-                viewModelShoppingcart.updatePhiVanChuyen()// theo dõi và câp nhật phí vận chuyển khi người dùng nhấn o checkbox
-                viewModelShoppingcart.updateTongTienHang()// Tổng Tiền hàng
-                viewModelShoppingcart.updateCheckBox(item,isChecked)// Update checkBox len room
+        if (model=="OrderSummary")
+        {
+            iconXoaMonAn.visibility= View.GONE
+            checkBox.visibility= View.GONE
+        }
+            else
+            {
+                iconXoaMonAn.visibility= View.VISIBLE
+                checkBox.visibility= View.VISIBLE
+
+                checkBox.setOnCheckedChangeListener { _, isChecked ->
+                    viewModelShoppingcart.isDone(isChecked,item) //xử lý trạng thái ủa checkbox tronng giỏ hàng
+                    viewModelShoppingcart.updateTrangThaiChon(item,isChecked)// xem xét và lấy các món ăn được chọn để hiển thị số món ăn tạm tính
+                    viewModelShoppingcart.updatePhiVanChuyen()// theo dõi và câp nhật phí vận chuyển khi người dùng nhấn o checkbox
+                    viewModelShoppingcart.updateTongTienHang()// Tổng Tiền hàng
+                    viewModelShoppingcart.updateCheckBox(item,isChecked)// Update checkBox len room
+                }
+                iconXoaMonAn.setOnClickListener {
+                    viewModelShoppingcart.deleteItem(item)
+                    viewModelShoppingcart.observeCartChang()
+                    Toast.makeText(context,"Bạn vừa xóa món ${item.tenMonAn}",Toast.LENGTH_SHORT).show()
+                }
             }
+
 
 
             giamSoLuong.setOnClickListener{
                 giamSoLuong.isEnabled=false
                 android.os.Handler(Looper.getMainLooper()).postDelayed({giamSoLuong.isEnabled=true},300)
                 val newSoLuong= (item.quantity-1).coerceAtLeast(1)// không giảm dưới 1
-                viewModelShoppingcart.updateSoLuongMon(item,newSoLuong)
-                if(item.checkBox && newSoLuong!= item.quantity)
-                    viewModelShoppingcart.setTongTienGiam(newSoLuong,item)
-                viewModelShoppingcart.updatePhiVanChuyen()// theo dõi và câp nhật phí vận chuyển khi người dùng nhấn o checkbox
-                viewModelShoppingcart.updateTongTienHang()// Tổng Tiền hàng
+                updateQuantity(item,newSoLuong,demSoLuong)
             }
             tangSoLuong.setOnClickListener {
                 tangSoLuong.isEnabled=false
                 android.os.Handler(Looper.getMainLooper()).postDelayed({tangSoLuong.isEnabled=true},300)
                 val newSoLuong= (item.quantity+1).coerceAtMost(50)// không quá 50 sản phẩm
-                viewModelShoppingcart.updateSoLuongMon(item,newSoLuong)
-                if(item.checkBox && newSoLuong!= item.quantity)
-                    viewModelShoppingcart.setTongTienTang(newSoLuong,item)
-                viewModelShoppingcart.updatePhiVanChuyen()// theo dõi và câp nhật phí vận chuyển khi người dùng nhấn o checkbox
-                viewModelShoppingcart.updateTongTienHang()// Tổng Tiền hàng
+               updateQuantity(item,newSoLuong,demSoLuong)
             }
-            iconXoaMonAn.setOnClickListener {
-                viewModelShoppingcart.deleteItem(item)
-                viewModelShoppingcart.observeCartChang()
-                Toast.makeText(context,"Bạn vừa xóa món ${item.tenMonAn}",Toast.LENGTH_SHORT).show()
-            }
+
         }
+    }
+    private fun updateQuantity(item: FoodItemCart, newQuantity: Int,demSoLuong: TextView){
+        val oldQuantity= item.quantity
+        item.quantity=newQuantity
+        demSoLuong.text=newQuantity.toString()
+        viewModelShoppingcart.updateSoLuongMon(item,newQuantity)
+        if(item.checkBox && newQuantity!= oldQuantity){
+            if(newQuantity>oldQuantity)
+                viewModelShoppingcart.setTongTienTang(newQuantity,item)
+            else
+                viewModelShoppingcart.setTongTienGiam(newQuantity,item)
+        }
+        viewModelShoppingcart.updatePhiVanChuyen()// theo dõi và câp nhật phí vận chuyển khi người dùng nhấn o checkbox
+        viewModelShoppingcart.updateTongTienHang()// Tổng Tiền hàng
     }
 
 }

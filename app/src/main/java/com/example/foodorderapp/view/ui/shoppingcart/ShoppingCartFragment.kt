@@ -23,6 +23,7 @@ import com.example.foodorderapp.model.FoodItemCart
 import com.example.foodorderapp.repository.FirebaseReposityGetCart
 import com.example.foodorderapp.utils.FormatterMoney
 import com.example.foodorderapp.utils.applySystemBarPadding
+import com.example.foodorderapp.view.MainActivity
 import com.example.foodorderapp.viewmodel.ShoppingCartViewModelFactory
 import com.example.foodorderapp.viewmodel.ViewModelGetInforUser
 import com.example.foodorderapp.viewmodel.ViewModelShoppingcart
@@ -54,7 +55,7 @@ private lateinit var viewModelGetInforUser: ViewModelGetInforUser
 
 
         viewModelShoppingcart= ViewModelProvider(requireActivity(),factory)[ViewModelShoppingcart::class.java]
-        adapterItemMonAnShoppingCart= AdapterItemMonAnShoppingCart(viewModelShoppingcart)
+        adapterItemMonAnShoppingCart= AdapterItemMonAnShoppingCart(viewModelShoppingcart,"ShoppingCart")
         viewModelGetInforUser= ViewModelProvider(requireActivity())[ViewModelGetInforUser::class.java]
 
         val tongTienTamTinh= view.findViewById<TextView>(R.id.txtTongTienTamTinh)
@@ -132,6 +133,7 @@ private lateinit var viewModelGetInforUser: ViewModelGetInforUser
         tongTienHang.setOnClickListener {
             Toast.makeText(context,"Bạn đã qua tóm tắt đơn hàng",Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentOrderSummary)
+            (requireActivity() as MainActivity).setNavagationBarBottom(false)
         }
 
         thayDoiThongTin.setOnClickListener {

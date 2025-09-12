@@ -72,7 +72,7 @@ class ShoppingCartTemporary : DialogFragment() {
         val rv= view.findViewById<RecyclerView>(R.id.rvMonAn)
         val tienHanh= view.findViewById<TextView>(R.id.txtTienHanh)
 
-        adapter= AdapterItemMonAnShoppingCart(viewModelShoppingcart)
+        adapter= AdapterItemMonAnShoppingCart(viewModelShoppingcart,"ShoppingCartTemporary")
 
         Log.d("ShoppingCartTemporary","doo ShoppingCartTemporary rooif")
 

@@ -37,13 +37,6 @@ class ViewModelShoppingcart(private val repository: FirebaseReposityGetCart) : V
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
 
-    // Thêm sync completion state
-    private val _isSyncComplete = MutableLiveData<Boolean>()
-    val isSyncComplete: LiveData<Boolean> get() = _isSyncComplete
-    //gắn cờ canh chỉ cho load từ Firestore lên Room lần đầu khi vào app
-    private var hasSyncedOnce= false
-
-
     // theo dõi trạng thái của ô checkbox để cập nhật và lưu trên ds RecycleView
     private var tongtien = 0
 
@@ -196,7 +189,6 @@ class ViewModelShoppingcart(private val repository: FirebaseReposityGetCart) : V
 
     fun updateTongTienHang() {
         val tienGiamGia = if (isMaApdung) giamgia else 0
-
         _theoDoiTongTienHang.value = tongtien + tienGiamGia + phiVanChuyen
 
     }
