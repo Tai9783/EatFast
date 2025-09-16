@@ -70,7 +70,7 @@
     <string name="shoppingcart_giaohangden">Giao hàng đến</string>
     <string name="shoppingcart_diaChiGiaoHang">125 Nam kì khởi nghĩa, quận 3, Tp HCM</string>
     <string name="shoppingcart_thayDoiDiaChi">Thay đổi</string>
-    <string name="shoppingcart_tienHang">Tổng tiền hàng:</string>
+    <string name="shoppingcart_tienHang">Tổng tiền hàng: 0đ</string>
     <string name="shoppingcart_tongTienHang">0đ</string>
 
     <string name="Account_TieuDe">Tài Khoản</string>
@@ -148,7 +148,7 @@
     <string name="ShoppingCartTemporary_Tc">Tổng cộng</string>
     <string name="ShoppingCartTemporary_TongCong">0đ</string>
     <string name="ShoppingCartTemporary_TienHanh">Tiến hành thanh toán</string>
-    <string name="CustomInformation_Tieude">Chỉnh sửa địa chỉ</string>
+    <string name="CustomInformation_Tieude">Cập nhật thông tin</string>
     <string name="CustomInformation_lienhe">Thông tin liên hệ</string>
     <string name="CustomInformation_Diachi">Thông tin địa chỉ</string>
     <string name="CustomInformation_VietNam">Việt Nam</string>

@@ -55,7 +55,6 @@ import org.w3c.dom.Text
         val rdbCod= view.findViewById<RadioButton>(R.id.rdbCod)
         val rdbMomo= view.findViewById<RadioButton>(R.id.rdbMomo)
         val rdbZaloPay= view.findViewById<RadioButton>(R.id.rdbZalopay)
-        var radioButtons: List<RadioButton>
 
 
         viewModelGetInforUser= ViewModelProvider(requireActivity())[ViewModelGetInforUser::class.java]
@@ -94,7 +93,7 @@ import org.w3c.dom.Text
             total.text = FormatterMoney.formatterMoney(newTotal)
         }
         viewModelGetInforUser.theodoiInforUser.observe(viewLifecycleOwner) { newInforUser ->
-            namePhoneUser.text = newInforUser.full_name
+            namePhoneUser.text = newInforUser.full_name+"(${newInforUser.phone})"
             val address= newInforUser.address
             val list= address.split(",")
             street.text= list[0]
@@ -104,7 +103,7 @@ import org.w3c.dom.Text
             quantityFood.text= "${listNew.size} món"
         }
 
-        radioButtons= listOf(rdbCod,rdbMomo,rdbZaloPay)
+        val radioButtons: List<RadioButton> = listOf(rdbCod,rdbMomo,rdbZaloPay)
         radioButtons.forEach {rb->
             rb.setOnClickListener {
                 radioButtons.forEach {

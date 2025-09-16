@@ -173,20 +173,20 @@
             android:background="#D1D1D1"/>
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnXacNhan"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutThongTinDiachi"
-        android:text="@string/CustomInformation_XacNhan"
-        android:background="@drawable/bg_button_login"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        />
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnXacNhan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutThongTinDiachi"
+            android:text="@string/CustomInformation_XacNhan"
+            android:background="@drawable/bg_button_login"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

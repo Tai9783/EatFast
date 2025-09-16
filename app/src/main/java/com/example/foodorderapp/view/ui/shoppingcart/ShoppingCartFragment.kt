@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -66,8 +67,7 @@ private lateinit var viewModelGetInforUser: ViewModelGetInforUser
         val edtNhapMa=view.findViewById<EditText>(R.id.edtGiamGia)
         val phivanchuyen= view.findViewById<TextView>(R.id.txtTienGiaoHang)
         val tongCongTien= view.findViewById<TextView>(R.id.txtTongCongTien)
-        val tongCongTienHang= view.findViewById<TextView>(R.id.txtTongTienHang)
-        val tongTienHang= view.findViewById<ConstraintLayout>(R.id.layoutTongTien)
+        val tongTienHang= view.findViewById<AppCompatButton>(R.id.btnXacNhan)
         val diaChi= view.findViewById<TextView>(R.id.txtDiaChi)
         val thayDoiThongTin= view.findViewById<TextView>(R.id.txtThayDoiDiaChi)
 
@@ -83,8 +83,6 @@ private lateinit var viewModelGetInforUser: ViewModelGetInforUser
             else
                 diaChi.text=address
         }
-
-
         // Xử lý Tổng số món đã chọn để tính tiền
         viewModelShoppingcart.dsDuocChon.observe(viewLifecycleOwner) { dsDuocChon ->
             dsMonDuocChon=dsDuocChon
@@ -122,32 +120,41 @@ private lateinit var viewModelGetInforUser: ViewModelGetInforUser
             phivanchuyen.text= FormatterMoney.formatterMoney(tienGiaoHang)
         }
         //Xử lý tổng cộng tiền hàng
-        viewModelShoppingcart.theoDoiTongTienHang.observe(viewLifecycleOwner){tongTienHang->
-            tongCongTien.text= FormatterMoney.formatterMoney(tongTienHang)
-            tongCongTienHang.text= FormatterMoney.formatterMoney(tongTienHang)
+        viewModelShoppingcart.theoDoiTongTienHang.observe(viewLifecycleOwner){newTotal->
+            tongCongTien.text= FormatterMoney.formatterMoney(newTotal)
+            tongTienHang.text= "Tổng tiền hàng: ${FormatterMoney.formatterMoney(newTotal)}"
         }
         val progressBar= view.findViewById<ProgressBar>(R.id.progressBar)
         setupLoadingObserver(progressBar)
         showMonAn(rvMonAn)
-
-        tongTienHang.setOnClickListener {
-            Toast.makeText(context,"Bạn đã qua tóm tắt đơn hàng",Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentOrderSummary)
-            (requireActivity() as MainActivity).setNavagationBarBottom(false)
+        viewModelShoppingcart.dsDuocChon.observe(viewLifecycleOwner) { newList ->
+            tongTienHang.isEnabled = newList.isNotEmpty()
         }
-
+        var isCheck= true
+        viewModelGetInforUser.theodoiInforUser.observe(viewLifecycleOwner){newUser->
+            if (newUser.address.isEmpty()|| newUser.phone.isEmpty())
+                    isCheck=false
+        }
+        tongTienHang.setOnClickListener {
+            if (isCheck) {
+                findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentOrderSummary)
+                (requireActivity() as MainActivity).setNavagationBarBottom(false)
+            }
+            else{
+                Toast.makeText(context,"Vui lòng cập nhật thông tin",Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentCustomInformation)
+                (requireActivity() as MainActivity).setNavagationBarBottom(false)
+            }
+        }
         thayDoiThongTin.setOnClickListener {
             findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentCustomInformation)
         }
     }
-
     private fun setupLoadingObserver(progressBar: ProgressBar) {
         viewModelShoppingcart.isLoading.observe(viewLifecycleOwner){isLoading->
             progressBar.visibility= if (isLoading) View.VISIBLE else   View.GONE
         }
     }
-
-
     private fun showMonAn( rvMonAn: RecyclerView) {
         rvMonAn.adapter=adapterItemMonAnShoppingCart
         rvMonAn.layoutManager=LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
