@@ -11,7 +11,6 @@ plugins {
         alias(libs.plugins.navigation.safeargs) // add dòng này để dùng pthuc truyen du tu fragment sang fragment
         // Kích hoạt annotation processor cho Glide (hoặc các thư viện cần annotation processing)
         id("kotlin-kapt")
-
 }
 
     android {

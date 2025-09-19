@@ -78,39 +78,6 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this,"Vui lòng nhập đủ hết các trường!",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-
-
-
-
-            /*FirebaseReposityGetInforUser().getInforUser(email) { user ->
-                showLoadingDialog()
-                Delay().runAfterMinDelay(startTime,MIN_DISPLAY_TIME){
-                    delayFinish=true
-                    checkDoneAndProceed()
-                }
-
-                val userRepo= FirebaseRepositoryGetUserMaxId()
-                if (user.email!=email) {
-                    userRepo.getUserMaxId { userId ->
-
-                        val item = InforUser(
-                            full_name = fullName,
-                            email = email,
-                            user_id = userId
-                        )
-                        AuthReposity().registerUser(password,item) { result ->
-                                signUpFinsh= true
-                                signUpSuccess=result
-                                checkDoneAndProceed()
-                        }
-                    }
-                }
-                else{
-                    signUpFinsh= true
-                    return@getInforUser
-                }
-            }
-*/
             dangky(email,fullName,password)
         }
     }

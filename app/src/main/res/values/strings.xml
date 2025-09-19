@@ -170,14 +170,23 @@
     <string name="OrderSummary_VoucherShipping">Giảm giá phí vận chuyển</string>
     <string name="OrderSummary_txtPaymentMethod">Phương thức thanh toán</string>
     <string name="OrderSummary_txtCashOnDelivery">Thanh toán khi nhận hàng</string>
-    <string name= "OrderSummary_Zalopay">Zalopay</string>
-    <string name= "OrderSummary_Momo">Momo</string>
+    <string name="OrderSummary_Zalopay">Zalopay</string>
+    <string name="OrderSummary_Momo">Momo</string>
     <string name="OrderSummary_txtTotal">Tổng</string>
     <string name="OrderSummary_txtQuantityFood">(0 món)</string>
     <string name="OrderSummary_Order">Đặt hàng</string>
 
+    <string name="DialogCustom_Title">Đơn hàng chứa nhiều quán khác nhau</string>
+    <string name="DialogCustom_Content">Chỉ chọn món từ một quán trong một đơn hàng. Vui lòng kiểm tra lại.</string>
+    <string name="DialogCustom_Confirm">Xác nhận</string>
 
-
+    <string name="ConfirmOrder_Title">Xác nhận đơn hàng</string>
+    <string name="ConfirmOrder_result">Đặt hàng thành công!</string>
+    <string name="ConfirmOrder_Content">Cảm ơn bạn đã đặt hàng. Đơn hàng của bạn đang được xử lý và sẽ được giao sớm nhất có thể.</string>
+    <string name="ConfirmOrder_Address">Giao đến: Tổ dân phố thôn Tân Định, phường An Bình, Gia Lai</string>
+    <string name="ConfirmOrder_Time">Thời gian giao hàng dự kiến:</string>
+    <string name="ConfirmOrder_Timee">15–20 phút</string>
+    <string name="ConfirmOrder_ViewOrder">Theo dõi đơn hàng</string>
 
     <string-array name="arrayTinh">
         <item>	Hồ Chí Minh	</item>

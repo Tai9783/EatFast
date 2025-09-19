@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.collection.emptyLongSet
 import androidx.lifecycle.ViewModelProvider
@@ -55,6 +56,7 @@ import org.w3c.dom.Text
         val rdbCod= view.findViewById<RadioButton>(R.id.rdbCod)
         val rdbMomo= view.findViewById<RadioButton>(R.id.rdbMomo)
         val rdbZaloPay= view.findViewById<RadioButton>(R.id.rdbZalopay)
+        val confirmOrder=view.findViewById<TextView>(R.id.btnOrder)
 
 
         viewModelGetInforUser= ViewModelProvider(requireActivity())[ViewModelGetInforUser::class.java]
@@ -111,6 +113,10 @@ import org.w3c.dom.Text
                 }
                 rb.isChecked=true
             }
+        }
+        confirmOrder.setOnClickListener {
+           findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentConfirmOrder)
+            Toast.makeText(context,"Đặt hàng thành công",Toast.LENGTH_SHORT).show()
         }
     }
 

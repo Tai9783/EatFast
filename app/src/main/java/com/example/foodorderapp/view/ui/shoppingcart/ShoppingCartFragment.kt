@@ -23,6 +23,7 @@ import com.example.foodorderapp.datasource.DatabaseProvider
 import com.example.foodorderapp.model.FoodItemCart
 import com.example.foodorderapp.repository.FirebaseReposityGetCart
 import com.example.foodorderapp.utils.FormatterMoney
+import com.example.foodorderapp.utils.applySystemBarMargin
 import com.example.foodorderapp.utils.applySystemBarPadding
 import com.example.foodorderapp.view.MainActivity
 import com.example.foodorderapp.viewmodel.ShoppingCartViewModelFactory
@@ -44,7 +45,7 @@ private lateinit var viewModelGetInforUser: ViewModelGetInforUser
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.applySystemBarPadding(applyTop = true, applyBottomNav = true)
+        view.applySystemBarPadding(applyTop = true, applyBottomNav = true, applySystemNavBar = true)
         val rvMonAn = view.findViewById<RecyclerView>(R.id.rvMonAn)
         // 1. Lấy CartDao từ Room database
         val cartDao = DatabaseProvider.getDatabase(requireContext()).cartDao()
@@ -124,8 +125,6 @@ private lateinit var viewModelGetInforUser: ViewModelGetInforUser
             tongCongTien.text= FormatterMoney.formatterMoney(newTotal)
             tongTienHang.text= "Tổng tiền hàng: ${FormatterMoney.formatterMoney(newTotal)}"
         }
-        val progressBar= view.findViewById<ProgressBar>(R.id.progressBar)
-        setupLoadingObserver(progressBar)
         showMonAn(rvMonAn)
         viewModelShoppingcart.dsDuocChon.observe(viewLifecycleOwner) { newList ->
             tongTienHang.isEnabled = newList.isNotEmpty()
@@ -137,8 +136,21 @@ private lateinit var viewModelGetInforUser: ViewModelGetInforUser
         }
         tongTienHang.setOnClickListener {
             if (isCheck) {
-                findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentOrderSummary)
-                (requireActivity() as MainActivity).setNavagationBarBottom(false)
+                val list = viewModelShoppingcart.dsDuocChon.value
+               if (!list.isNullOrEmpty()){
+                   // Chỉ cho đặt các món từ một quán trong một đơn
+                   if (isFromOneShop(list)){
+                       findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentOrderSummary)
+                       (requireActivity() as MainActivity).setNavagationBarBottom(false)
+                   }
+                   else
+                   {
+                       val dialog= FragmentDialogInformation()
+                       dialog.show(parentFragmentManager,"information")
+                       Toast.makeText(context,"Chỉ cho phép đặt các món từ một quán", Toast.LENGTH_SHORT).show()
+                       return@setOnClickListener
+                   }
+               }
             }
             else{
                 Toast.makeText(context,"Vui lòng cập nhật thông tin",Toast.LENGTH_SHORT).show()
@@ -150,11 +162,7 @@ private lateinit var viewModelGetInforUser: ViewModelGetInforUser
             findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentCustomInformation)
         }
     }
-    private fun setupLoadingObserver(progressBar: ProgressBar) {
-        viewModelShoppingcart.isLoading.observe(viewLifecycleOwner){isLoading->
-            progressBar.visibility= if (isLoading) View.VISIBLE else   View.GONE
-        }
-    }
+
     private fun showMonAn( rvMonAn: RecyclerView) {
         rvMonAn.adapter=adapterItemMonAnShoppingCart
         rvMonAn.layoutManager=LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
@@ -187,5 +195,9 @@ private lateinit var viewModelGetInforUser: ViewModelGetInforUser
             }
         })
 
+    }
+    //Hàm kiểm tra xem các món ăn có đến từ một quán hay không
+    private fun isFromOneShop(selected: List<FoodItemCart>): Boolean {
+       return selected.map { it.seller_id }.distinct().size==1
     }
 }

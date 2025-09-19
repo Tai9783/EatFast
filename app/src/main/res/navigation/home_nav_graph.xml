@@ -35,6 +35,7 @@
             app:destination="@+id/fragmentOrderSummary"
             app:enterAnim="@anim/slide_in_bottom"
             app:popExitAnim="@anim/slide_out_bottom"/>
+
     </fragment>
 
 
@@ -83,11 +84,19 @@
         android:name="com.example.foodorderapp.view.ui.shoppingcart.FragmentOrderSummary"
         android:label="Tóm tắt đơn hàng"/>
 
+    <action android:id="@+id/action_shoppingCartFragment_to_fragmentConfirmOrder"
+        app:destination="@id/frgamentConfirmOrder"
+        app:enterAnim="@anim/slide_in_bottom"
+        app:popExitAnim="@anim/slide_out_bottom"/>
+
     <fragment
         android:id="@+id/fragmentCustomInformation"
         android:name="com.example.foodorderapp.view.ui.shoppingcart.FragmentCustomInformation"
         android:label="fragmentTùy chỉnh thông tin User"
         />
+    <fragment android:id="@+id/frgamentConfirmOrder"
+        android:name="com.example.foodorderapp.view.ui.shoppingcart.FragmentConfirmOrder"
+        android:label="Xác nhận đơn hàng"/>
 
     <action android:id="@+id/action_fragmentQuanAn_to_fragmentCustomizeFood"
         app:destination="@+id/fragmentCustomizeFood"/>
