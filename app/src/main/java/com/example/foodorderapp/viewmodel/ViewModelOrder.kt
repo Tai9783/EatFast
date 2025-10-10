@@ -12,8 +12,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class ViewModelOrder : ViewModel() {
-    private val _orderCreationStatus= MutableSharedFlow<Boolean>()
-    val orderCreationStatus: MutableSharedFlow<Boolean> get()= _orderCreationStatus
+
+    private val _orderResult= MutableSharedFlow<OrderResult>()
+    val orderResult: MutableSharedFlow<OrderResult> get()= _orderResult
+
 
 
     private val _lisExeededStockFoods = MutableStateFlow<List<ProblemDish>>(emptyList())
@@ -22,7 +24,7 @@ class ViewModelOrder : ViewModel() {
     private fun createOrder(listFood: List<FoodItemCart>, totalPrice: Int) {
         OrderRepository().createOrder(listFood, totalPrice) { success ->
             viewModelScope.launch {
-                _orderCreationStatus.emit(success)
+                _orderResult.emit(OrderResult.Success(success))
             }
         }
     }
@@ -48,7 +50,8 @@ class ViewModelOrder : ViewModel() {
                                 }
                                else{
                                    viewModelScope.launch {
-                                       _orderCreationStatus.emit(false)
+
+                                       _orderResult.emit(OrderResult.Failed(exceededStockFoods))
                                    }
                                 }
                             }
@@ -56,6 +59,7 @@ class ViewModelOrder : ViewModel() {
                         else
                             viewModelScope.launch {
                                 _lisExeededStockFoods.value = exceededStockFoods
+                                _orderResult.emit(OrderResult.Failed(exceededStockFoods))
                             }
                     }
                 }
@@ -67,4 +71,10 @@ class ViewModelOrder : ViewModel() {
         _lisExeededStockFoods.value= emptyList()
 
     }
+
+    sealed class OrderResult{
+        data class Success(val isCheck: Boolean): OrderResult()
+        data class  Failed(val problemFoods: List<ProblemDish>) : OrderResult()
+    }
+
 }

@@ -89,6 +89,7 @@
         app:enterAnim="@anim/slide_in_bottom"
         app:popExitAnim="@anim/slide_out_bottom"/>
 
+
     <fragment
         android:id="@+id/fragmentCustomInformation"
         android:name="com.example.foodorderapp.view.ui.shoppingcart.FragmentCustomInformation"
@@ -96,7 +97,16 @@
         />
     <fragment android:id="@+id/frgamentConfirmOrder"
         android:name="com.example.foodorderapp.view.ui.shoppingcart.FragmentConfirmOrder"
-        android:label="Xác nhận đơn hàng"/>
+        android:label="Xác nhận đơn hàng">
+        <argument
+            android:name="key"
+            app:argType="string"/>
+    </fragment>
+    <action android:id="@+id/actionFragmentOrderSummaryToFragmentConfirmOrder"
+        app:destination="@id/frgamentConfirmOrder"
+        app:enterAnim="@anim/slide_in_bottom"
+        app:popExitAnim="@anim/slide_out_bottom"/>
+/>
 
     <action android:id="@+id/action_fragmentQuanAn_to_fragmentCustomizeFood"
         app:destination="@+id/fragmentCustomizeFood"/>

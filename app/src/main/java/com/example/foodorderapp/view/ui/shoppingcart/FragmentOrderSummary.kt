@@ -133,27 +133,22 @@ import org.w3c.dom.Text
 
         }
         lifecycleScope.launchWhenStarted {
-            viewModelOrder.listExeededStockFoods.collect{listFoodProblem->
-                Log.d("Summary","$listFoodProblem")
-                if (listFoodProblem.isNotEmpty()){
-                    findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentConfirmOrder)
-                }
+           viewModelOrder.orderResult.collect { result ->
+               when(result){
+                   is ViewModelOrder.OrderResult.Success -> {
 
-            }
+                           val action= FragmentOrderSummaryDirections.actionFragmentOrderSummaryToFragmentConfirmOrder(key = "true")
+                           findNavController().navigate(action)
+
+                   }
+                   is ViewModelOrder.OrderResult.Failed -> {
+                        val action= FragmentOrderSummaryDirections.actionFragmentOrderSummaryToFragmentConfirmOrder(key = "false")
+                       findNavController().navigate(action)
+                   }
+               }
+           }
         }
-        lifecycleScope.launchWhenStarted {
 
-            viewModelOrder.orderCreationStatus.collect { isCheck ->
-                if (isCheck)
-                {
-                    findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentConfirmOrder)
-                    Toast.makeText(context,"Đặt hàng thành công",Toast.LENGTH_SHORT).show()
-                }
-                else
-                    Toast.makeText(context,"Đặt hàng thất bại",Toast.LENGTH_SHORT).show()
-            }
-
-        }
 
 
     }

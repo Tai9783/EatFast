@@ -40,22 +40,33 @@ class FragmentConfirmOrder : Fragment() {
         val rvFoodProblem= view.findViewById<RecyclerView>(R.id.rvFoodProblem)
         val textContext= view.findViewById<TextView>(R.id.txtContent)
         val btnConfirm= view.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.btnConfirm)
+        val layoutWarning= view.findViewById<androidx.cardview.widget.CardView>(R.id.layoutWarning)
+
 
         exit.setOnClickListener {
            findNavController().popBackStack()
+            viewModelOrder.clearExcessStock()
         }
-        lifecycleScope.launchWhenStarted {
-            viewModelOrder.listExeededStockFoods.collect { listFoodProblem ->
-                Log.d("ConfirmOrder", "$listFoodProblem")
-                if (listFoodProblem.isNotEmpty()) {
-                    Log.d("ConfirmOrder", "Danh sahcs là $listFoodProblem")
-                    imgResult.setImageResource(R.drawable.icon_fail)
-                    textResult.text = "Đặt hàng không thành công!"
-                    textContext.text="Rất tiếc, một số món trong đơn hàng của bạn đã hết hàng hoặc không đủ số lượng."
-                    btnConfirm.text = "Chỉnh sửa đơn hàng"
+        val key= arguments?.let { FragmentConfirmOrderArgs.fromBundle(it).key }
+        if (key=="true"){
+            imgResult.setImageResource(R.drawable.icon_success)
+            textResult.text = getString(R.string.ConfirmOrder_result)
+            textContext.text= getString(R.string.ConfirmOrder_Content)
+            btnConfirm.text = getString(R.string.ConfirmOrder_ViewOrder )
+        }
+        else if(key=="false") {
+            layoutWarning.visibility = View.VISIBLE
+            imgResult.setImageResource(R.drawable.icon_fail)
+            textResult.text = getString(R.string.ConfirmOrder_failed)
+            textContext.text = getString(R.string.ConfirmOrder_problem)
+            btnConfirm.text = getString(R.string.ConfirmOrder_order)
+
+            lifecycleScope.launchWhenStarted {
+                viewModelOrder.listExeededStockFoods.collect { listFoodProblem ->
                     adapter = AdapterItemProblemDish(listFoodProblem)
                     rvFoodProblem.adapter = adapter
-                    rvFoodProblem.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                    rvFoodProblem.layoutManager =
+                        LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                     rvFoodProblem.addItemDecoration(object : RecyclerView.ItemDecoration() {
                         override fun getItemOffsets(
                             outRect: Rect,
@@ -63,12 +74,12 @@ class FragmentConfirmOrder : Fragment() {
                             parent: RecyclerView,
                             state: RecyclerView.State
                         ) {
-                            outRect.bottom= 40
+                            outRect.bottom = 40
                         }
                     })
                 }
-                viewModelOrder.clearExcessStock()
             }
         }
+
     }
 }

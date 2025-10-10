@@ -192,6 +192,9 @@
     <string name="ConfirmOrder_Timee">15–20 phút</string>
     <string name="ConfirmOrder_ViewOrder">Theo dõi đơn hàng</string>
     <string name="ConfirmOrder_titleWarning">Món có vấn đề</string>
+    <string name="ConfirmOrder_failed">Đặt hàng không thành công!</string>
+    <string name="ConfirmOrder_problem">Rất tiếc, một số món trong đơn hàng của bạn đã hết hàng hoặc không đủ số lượng.</string>
+    <string name="ConfirmOrder_order">Chỉnh sửa đơn hàng</string>
 
 
 
