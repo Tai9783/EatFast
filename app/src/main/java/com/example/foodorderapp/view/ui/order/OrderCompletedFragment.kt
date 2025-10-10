@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodorderapp.R
 import com.example.foodorderapp.adapter.AdapterItemOrderHoanThanh
 import com.example.foodorderapp.model.FoodItemOrderDangGiao
-import com.example.foodorderapp.model.OrderHoanThanh
+import com.example.foodorderapp.model.Order
 import java.time.LocalDate
 import java.time.LocalTime
 
 
-class OrderFragment_HoanThanh : Fragment() {
+class OrderCompletedFragment : Fragment() {
 
 
 
@@ -33,24 +33,26 @@ class OrderFragment_HoanThanh : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val rvHoanThanh= view.findViewById<RecyclerView>(R.id.rvHoanThanh)
-        val list= mutableListOf<OrderHoanThanh>()
+        val list= mutableListOf<Order>()
         showHoanThanh(list,rvHoanThanh)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun showHoanThanh(list: MutableList<OrderHoanThanh>, rvHoanThanh: RecyclerView) {
+    private fun showHoanThanh(list: MutableList<Order>, rvHoanThanh: RecyclerView) {
         val listDsMon= listOf(FoodItemOrderDangGiao("1 Heo rừng cuồng nhiệt",200000),FoodItemOrderDangGiao("1 Pizza hải sản",105000))
         var tongtien=0
         for(i in listDsMon){
             tongtien+= i.gia
         }
-        val listDsMon2= listOf(FoodItemOrderDangGiao("1 Heo rừng cuồng nhiệt",200000),FoodItemOrderDangGiao("1 Pizza hải sản",105000))
+        val listDsMon2= listOf(FoodItemOrderDangGiao("5 Heo rừng cuồng nhiệt",200000),FoodItemOrderDangGiao("10 Pizza hải sản",200000))
         var tongtien2=0
-        for(i in listDsMon){
+        for(i in listDsMon2){
             tongtien2+= i.gia
         }
-        list.add(OrderHoanThanh("Phương Nam", LocalDate.now(), LocalTime.now(),listDsMon,tongtien))
-        list.add(OrderHoanThanh("Quá Ngon", LocalDate.now(), LocalTime.now(),listDsMon2,tongtien2))
+        list.add(Order(shopName = "Phương Nam", orderDate =  LocalDate.now(), orderTime =  LocalTime.now(), listMonAn =  listDsMon, totalPrice =  tongtien))
+        list.add(Order(shopName = "Phương Nam", orderDate =  LocalDate.now(), orderTime =  LocalTime.now(), listMonAn =  listDsMon2, totalPrice =  tongtien2))
+        list.add(Order(shopName = "Phương Nam", orderDate =  LocalDate.now(), orderTime =  LocalTime.now(), listMonAn =  listDsMon2, totalPrice =  tongtien2))
+
         rvHoanThanh.adapter=AdapterItemOrderHoanThanh(list)
         rvHoanThanh.layoutManager= LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
 

@@ -45,14 +45,14 @@ private lateinit var viewModelGetInforUser: ViewModelGetInforUser
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.applySystemBarPadding(applyTop = true, applyBottomNav = true, applySystemNavBar = true)
+        view.applySystemBarPadding(applyTop = true, applyBottomNav = true,applySystemNavBar = true)
         val rvMonAn = view.findViewById<RecyclerView>(R.id.rvMonAn)
         // 1. Lấy CartDao từ Room database
         val cartDao = DatabaseProvider.getDatabase(requireContext()).cartDao()
         val foodDao = DatabaseProvider.getDatabase(requireContext()).foodDao()
         val sellerDao = DatabaseProvider.getDatabase(requireContext()).sellerDao()
 
-        val repository = FirebaseReposityGetCart(cartDao,sellerDao,foodDao) // khởi tạo repository
+        val repository = FirebaseReposityGetCart(cartDao,sellerDao,foodDao) // khởi     tạo repository
         val factory = ShoppingCartViewModelFactory(repository)
 
 

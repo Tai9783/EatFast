@@ -3,12 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ui.order.OrderCanceledFragment">
+    tools:context=".view.ui.order.OrderPendingFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvDahuy"
+        android:id="@+id/rvPending"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="100dp"/>
-
 </FrameLayout>

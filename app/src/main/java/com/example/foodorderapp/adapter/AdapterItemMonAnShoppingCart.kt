@@ -58,9 +58,10 @@ class AdapterItemMonAnShoppingCart(private val viewModelShoppingcart: ViewModelS
             tenNhaHang.text=item.tenNhaHang
             ghiChu.text=item.option_description
             demSoLuong.text=item.quantity.toString()
-            giaMonAn.text= FormatterMoney.formatterMoney(item.giaMonAn)
+            giaMonAn.text= FormatterMoney.formatterMoney(item.giaMonAn+item.priceSize)
             checkBox.setOnCheckedChangeListener(null)
             checkBox.isChecked= item.checkBox
+
 
         if (model=="OrderSummary")
         {
@@ -86,8 +87,6 @@ class AdapterItemMonAnShoppingCart(private val viewModelShoppingcart: ViewModelS
                 }
             }
 
-
-
             giamSoLuong.setOnClickListener{
                 giamSoLuong.isEnabled=false
                 android.os.Handler(Looper.getMainLooper()).postDelayed({giamSoLuong.isEnabled=true},300)
@@ -105,7 +104,6 @@ class AdapterItemMonAnShoppingCart(private val viewModelShoppingcart: ViewModelS
     }
     private fun updateQuantity(item: FoodItemCart, newQuantity: Int,demSoLuong: TextView){
         val oldQuantity= item.quantity
-        item.quantity=newQuantity
         demSoLuong.text=newQuantity.toString()
         viewModelShoppingcart.updateSoLuongMon(item,newQuantity)
         if(item.checkBox && newQuantity!= oldQuantity){
@@ -117,5 +115,4 @@ class AdapterItemMonAnShoppingCart(private val viewModelShoppingcart: ViewModelS
         viewModelShoppingcart.updatePhiVanChuyen()// theo dõi và câp nhật phí vận chuyển khi người dùng nhấn o checkbox
         viewModelShoppingcart.updateTongTienHang()// Tổng Tiền hàng
     }
-
 }

@@ -9,12 +9,11 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodorderapp.R
-import com.example.foodorderapp.model.OrderHoanThanh
+import com.example.foodorderapp.model.Order
 import com.example.foodorderapp.utils.FormatterMoney
-import org.w3c.dom.Text
 import java.time.format.DateTimeFormatter
 
-class AdapterItemOrderHoanThanh(private val list: List<OrderHoanThanh>): RecyclerView.Adapter<AdapterItemOrderHoanThanh.ViewHolder>() {
+class AdapterItemOrderHoanThanh(private val list: List<Order>): RecyclerView.Adapter<AdapterItemOrderHoanThanh.ViewHolder>() {
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,19 +24,19 @@ class AdapterItemOrderHoanThanh(private val list: List<OrderHoanThanh>): Recycle
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemView.apply {
-            val tenNhanHang= findViewById<TextView>(R.id.txtTenNhahang)
-            val thoiGianDatHangNgay= findViewById<TextView>(R.id.txtThoigian_ngay)
-            val thoiGianDatHangGio= findViewById<TextView>(R.id.txtThoigian_gio)
-            val tongTien= findViewById<TextView>(R.id.txtTongTien)
+            val shopName= findViewById<TextView>(R.id.txtTenNhahang)
+            val orderDate= findViewById<TextView>(R.id.txtThoigian_ngay)
+            val orderTime= findViewById<TextView>(R.id.txtThoigian_gio)
+            val totalPrice= findViewById<TextView>(R.id.txtTongTien)
             val listDs= findViewById<RecyclerView>(R.id.rvMonAn)
 
-            tenNhanHang.text= list[position].tenNhaHang
+            shopName.text= list[position].shopName
             val dateFormatter= DateTimeFormatter.ofPattern("dd/MM/yyyy")
-            thoiGianDatHangNgay.text= list[position].thoigianDatHangNgay.format(dateFormatter)
+            orderDate.text= list[position].orderDate.format(dateFormatter)
             val timeFormatter= DateTimeFormatter.ofPattern("HH:mm")
-            thoiGianDatHangGio.text=list[position].thoiGianDatHangGio.format(timeFormatter)
-            tongTien.text= FormatterMoney.formatterMoney(list[position].tongTien)
-            listDs.adapter= AdapterItemMonOrderDangGiao(list[position].list)
+            orderTime.text=list[position].orderTime.format(timeFormatter)
+            totalPrice.text= FormatterMoney.formatterMoney(list[position].totalPrice)
+            listDs.adapter= AdapterItemMonOrderDangGiao(list[position].listMonAn)
             listDs.layoutManager= LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
         }
     }

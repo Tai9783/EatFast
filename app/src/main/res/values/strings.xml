@@ -177,8 +177,12 @@
     <string name="OrderSummary_Order">Đặt hàng</string>
 
     <string name="DialogCustom_Title">Đơn hàng chứa nhiều quán khác nhau</string>
-    <string name="DialogCustom_Content">Chỉ chọn món từ một quán trong một đơn hàng. Vui lòng kiểm tra lại.</string>
+    <string name="DialogCustom_Content">Để dễ quản lý. Vui lòng chỉ chọn các món từ một quán trong một đơn hàng.</string>
     <string name="DialogCustom_Confirm">Xác nhận</string>
+
+    <string name="Item_ProblemDish_titleFood">Trà sữ trân châu</string>
+    <string name="Item_ProblemDish_issueMessage">Chỉ còn 3 suất(bạn đặt 5 suất)</string>
+
 
     <string name="ConfirmOrder_Title">Xác nhận đơn hàng</string>
     <string name="ConfirmOrder_result">Đặt hàng thành công!</string>
@@ -187,6 +191,9 @@
     <string name="ConfirmOrder_Time">Thời gian giao hàng dự kiến:</string>
     <string name="ConfirmOrder_Timee">15–20 phút</string>
     <string name="ConfirmOrder_ViewOrder">Theo dõi đơn hàng</string>
+    <string name="ConfirmOrder_titleWarning">Món có vấn đề</string>
+
+
 
     <string-array name="arrayTinh">
         <item>	Hồ Chí Minh	</item>

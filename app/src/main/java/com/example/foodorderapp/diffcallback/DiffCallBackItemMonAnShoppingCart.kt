@@ -16,6 +16,6 @@ class DiffCallBackItemMonAnShoppingCart :DiffUtil.ItemCallback<FoodItemCart>() {
         oldItem: FoodItemCart,
         newItem: FoodItemCart
     ): Boolean {
-       return oldItem==newItem
+       return oldItem == newItem
     }
 }

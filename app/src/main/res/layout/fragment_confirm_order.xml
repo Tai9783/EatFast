@@ -50,8 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view1"
-        android:layout_marginTop="10dp"
-        >
+        android:layout_marginTop="10dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,20 +60,17 @@
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:background="@drawable/bg_rounded_gray_border_shadow"
-            android:padding="20dp"
-            >
+            android:padding="20dp">
 
             <ImageView
-                android:id="@+id/imgSuccess"
+                android:id="@+id/imgResult"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:contentDescription="@string/motaanh"
                 android:src="@drawable/icon_success"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txtResult"
@@ -82,11 +78,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/ConfirmOrder_result"
                 android:textColor="#3E3E3E"
-                android:textSize="28sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgSuccess" />
+                app:layout_constraintTop_toBottomOf="@+id/imgResult" />
 
             <TextView
                 android:id="@+id/txtContent"
@@ -100,6 +97,67 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtResult" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/layoutWarning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtContent"
+                android:layout_marginTop="20dp"
+                android:padding="15dp"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="#FFFAF3
+">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtContent"
+
+                    android:padding="15dp">
+                    <ImageView
+                        android:id="@+id/imgWarning"
+                        android:layout_width="40dp"
+                        android:layout_height="24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/motaanh"
+                        android:src="@drawable/icon_warningg"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/imgWarning"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="@string/ConfirmOrder_titleWarning"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#ED5F3C37"
+                        />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvFoodProblem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginTop="15dp"
+                       />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layoutInformation"
@@ -112,7 +170,7 @@
                 android:padding="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtContent">
+                app:layout_constraintTop_toBottomOf="@+id/layoutWarning">
 
                 <TextView
                     android:id="@+id/txtAddress"
@@ -139,7 +197,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:text="@string/ConfirmOrder_Timee"
                     android:textColor="#1C8015"
                     android:textSize="17sp"

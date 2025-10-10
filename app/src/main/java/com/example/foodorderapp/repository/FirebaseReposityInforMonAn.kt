@@ -1,12 +1,12 @@
 package com.example.foodorderapp.repository
 
 import android.util.Log
+import com.example.foodorderapp.model.Food
 import com.google.firebase.firestore.FirebaseFirestore
 
 class FirebaseReposityInforMonAn {
     private val db= FirebaseFirestore.getInstance().collection("Foods")
-
-    fun getInforMonAn(foodId: String, onCallBack:(String,Int,String)->Unit){
+    fun getInforMonAn(foodId: String, onCallBack:(Food)->Unit){
         db.whereEqualTo("food_id",foodId)
             .get()
             .addOnSuccessListener {result->
@@ -15,15 +15,17 @@ class FirebaseReposityInforMonAn {
                     val nameFood= i.getString("name_food")?:""
                     val price= i.getLong("price")?.toInt()?:0
                     val imageUrl= i.getString("image_url")?:""
-                    onCallBack(nameFood,price,imageUrl)
+                    val isAvailable= i.getBoolean("isAvailable")?:false
+                    val stockQuantity= i.getLong("stockQuantity")?.toInt()?:0
+                    val food= Food(name_food = nameFood, price = price, image_url = imageUrl, isAvailable = isAvailable, stockQuantity = stockQuantity)
+                    onCallBack(food)
                 } else {
                     // Chỉ gọi callback với dữ liệu rỗng khi thực sự không tìm thấy
-                    onCallBack("",0,"")
+                    onCallBack(Food())
                 }
             }
             .addOnFailureListener {
-                onCallBack("",0,"")
-                Log.e("repository","Lấy thông tin món ăn không thành công")
+                onCallBack(Food())
             }
     }
 }

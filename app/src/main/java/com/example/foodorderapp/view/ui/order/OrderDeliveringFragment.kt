@@ -7,30 +7,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.DatePicker
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.foodorderapp.R
 import com.example.foodorderapp.adapter.AdapterOrderDangGiao
 import com.example.foodorderapp.model.FoodItemOrderDangGiao
-import com.example.foodorderapp.model.OrderDangGiao
+import com.example.foodorderapp.model.Order
 import java.time.LocalDate
 import java.time.LocalTime
-import java.time.format.DateTimeFormatter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [OrderFragment_DangGiao.newInstance] factory method to
- * create an instance of this fragment.
- */
-class OrderFragment_DangGiao : Fragment() {
+class OrderDeliveringFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,12 +31,12 @@ class OrderFragment_DangGiao : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val rvOrderDangGiao= view.findViewById<RecyclerView>(R.id.rvOrderDangGiao)
-        val list= mutableListOf<OrderDangGiao>( )
+        val list= mutableListOf<Order>( )
         showOrderDangGiao(list,rvOrderDangGiao)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun showOrderDangGiao(list: MutableList<OrderDangGiao>, rvOrderDangGiao: RecyclerView) {
+    private fun showOrderDangGiao(list: MutableList<Order>, rvOrderDangGiao: RecyclerView) {
         val listItemMonAn= listOf(FoodItemOrderDangGiao("1 Bánh burger thịt bò đặt biệt",89000),
             FoodItemOrderDangGiao("1 khoai tây chiên(size L)",35000))
         var tongtien1: Int=0
@@ -63,12 +51,22 @@ class OrderFragment_DangGiao : Fragment() {
         {
             tongtien2+= i.gia
         }
-        list.add(OrderDangGiao("Cô Ba Sài Gòn", LocalDate.now(), LocalTime.now(),listItemMonAn,tongtien1,
-            25,"123 Nguyễn Văn Linh, Quận 7, TP HCM","0397589783"))
-        list.add(OrderDangGiao("Quá Ngon", LocalDate.now(), LocalTime.now(),listItemMonAn,tongtien2,
-            25,"56 Phạm Cự Lượng,P2, Quận Tân Bình, TP HCM","0363431567"))
-        list.add(OrderDangGiao("Quá Ngon", LocalDate.now(), LocalTime.now(),listItemMonAn,tongtien2,
-            25,"56 Phạm Cự Lượng,P2, Quận Tân Bình, TP HCM","0363431567"))
+        list.add(
+            Order(shopName = "Cô Ba Sài Gòn", orderDate =  LocalDate.now(), orderTime =  LocalTime.now(), listMonAn =  listItemMonAn, totalPrice =  tongtien1,
+                deliveryTime = 25,address= "123 Nguyễn Văn Linh, Quận 7, TP HCM", phoneNumber ="0397589783")
+
+        )
+        list.add(
+            Order(shopName = "Cô Ba Sài Gòn", orderDate =  LocalDate.now(), orderTime =  LocalTime.now(), listMonAn =  listItemMonAn, totalPrice =  tongtien1,
+                deliveryTime = 25,address= "123 Nguyễn Văn Linh, Quận 7, TP HCM", phoneNumber ="0397589783")
+
+        )
+        list.add(
+            Order(shopName = "Cô Ba Sài Gòn", orderDate =  LocalDate.now(), orderTime =  LocalTime.now(), listMonAn =  listItemMonAn, totalPrice =  tongtien1,
+                deliveryTime = 25,address= "123 Nguyễn Văn Linh, Quận 7, TP HCM", phoneNumber ="0397589783")
+
+        )
+
         rvOrderDangGiao.adapter= AdapterOrderDangGiao(list)
         rvOrderDangGiao.layoutManager= LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
 

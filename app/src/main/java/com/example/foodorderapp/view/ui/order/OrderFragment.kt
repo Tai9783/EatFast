@@ -29,9 +29,10 @@ class OrderFragment : Fragment() {
         orderView?.adapter= AdapterUserViewPage2Order(childFragmentManager,lifecycle)
         TabLayoutMediator(orderTab,orderView){tab,pos->
                 when(pos){
-                    0->{tab.text="Đang giao"}
-                    1->{tab.text="Hoàn thành"}
-                    2->{tab.text="Đã hủy"}
+                    0->{tab.text="Đang chờ"}
+                    1->{tab.text="Đang giao"}
+                    2->{tab.text="Hoàn thành"}
+                    3->{tab.text="Đã hủy"}
                 }
         }.attach()
     }

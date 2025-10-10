@@ -2,6 +2,7 @@
 
 import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,15 +14,21 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.collection.emptyLongSet
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodorderapp.R
 import com.example.foodorderapp.adapter.AdapterItemMonAnShoppingCart
+import com.example.foodorderapp.model.FoodItemCart
+import com.example.foodorderapp.repository.FirebaseReposityInforMonAn
+import com.example.foodorderapp.repository.OrderRepository
 import com.example.foodorderapp.utils.FormatterMoney
 import com.example.foodorderapp.utils.applySystemBarPadding
 import com.example.foodorderapp.view.MainActivity
+import com.example.foodorderapp.viewmodel.ViewModelGetInforFood
 import com.example.foodorderapp.viewmodel.ViewModelGetInforUser
+import com.example.foodorderapp.viewmodel.ViewModelOrder
 import com.example.foodorderapp.viewmodel.ViewModelShoppingcart
 import org.w3c.dom.Text
 
@@ -29,6 +36,8 @@ import org.w3c.dom.Text
     private lateinit var viewModelShoppingcart: ViewModelShoppingcart
     private lateinit var adapter: AdapterItemMonAnShoppingCart
     private lateinit var viewModelGetInforUser: ViewModelGetInforUser
+    private lateinit var viewModelGetInforFood: ViewModelGetInforFood
+    private lateinit var viewModelOrder: ViewModelOrder
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,7 +71,8 @@ import org.w3c.dom.Text
         viewModelGetInforUser= ViewModelProvider(requireActivity())[ViewModelGetInforUser::class.java]
         viewModelShoppingcart= ViewModelProvider(requireActivity())[ViewModelShoppingcart::class.java]
         adapter= AdapterItemMonAnShoppingCart(viewModelShoppingcart,"OrderSummary")
-       
+        viewModelGetInforFood= ViewModelProvider(requireActivity())[ViewModelGetInforFood::class.java]
+        viewModelOrder= ViewModelProvider(requireActivity())[ViewModelOrder::class.java]
 
 
 
@@ -115,11 +125,38 @@ import org.w3c.dom.Text
             }
         }
         confirmOrder.setOnClickListener {
-           findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentConfirmOrder)
-            Toast.makeText(context,"Đặt hàng thành công",Toast.LENGTH_SHORT).show()
-        }
-    }
 
+                Toast.makeText(context,"Đã click",Toast.LENGTH_SHORT).show()
+                val listFood= viewModelShoppingcart.dsDuocChon.value?: emptyList()
+                val totalPrice= viewModelShoppingcart.theoDoiTongTienHang.value?:0
+                viewModelOrder.checkStockAndCreateOrder(listFood,totalPrice)
+
+        }
+        lifecycleScope.launchWhenStarted {
+            viewModelOrder.listExeededStockFoods.collect{listFoodProblem->
+                Log.d("Summary","$listFoodProblem")
+                if (listFoodProblem.isNotEmpty()){
+                    findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentConfirmOrder)
+                }
+
+            }
+        }
+        lifecycleScope.launchWhenStarted {
+
+            viewModelOrder.orderCreationStatus.collect { isCheck ->
+                if (isCheck)
+                {
+                    findNavController().navigate(R.id.action_shoppingCartFragment_to_fragmentConfirmOrder)
+                    Toast.makeText(context,"Đặt hàng thành công",Toast.LENGTH_SHORT).show()
+                }
+                else
+                    Toast.makeText(context,"Đặt hàng thất bại",Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
+
+    }
         private fun showFood(rvFood: RecyclerView?) {
             rvFood?.adapter= adapter
             rvFood?.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)

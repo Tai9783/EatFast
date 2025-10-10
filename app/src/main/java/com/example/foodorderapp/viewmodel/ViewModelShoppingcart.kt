@@ -48,10 +48,10 @@ class ViewModelShoppingcart(private val repository: FirebaseReposityGetCart) : V
             val newItem = item.copy(checkBox = isDoneNew)
             // Tính tiền tạm tính
             if (newItem.checkBox) {
-                tongtien += item.quantity * item.giaMonAn
+                tongtien += item.quantity * (item.giaMonAn +item.priceSize)
                 _theoDoiTongTienTamTinh.value = tongtien
             } else {
-                tongtien -= item.quantity * item.giaMonAn
+                tongtien -= item.quantity * (item.giaMonAn +item.priceSize)
                 _theoDoiTongTienTamTinh.value = tongtien
             }
 
@@ -71,14 +71,14 @@ class ViewModelShoppingcart(private val repository: FirebaseReposityGetCart) : V
 
 
     fun setTongTienTang(newSoLuong: Int, item: FoodItemCart) {
-        tongtien -= (newSoLuong - 1) * item.giaMonAn
-        tongtien += newSoLuong * item.giaMonAn
+        tongtien -= (newSoLuong - 1) * (item.giaMonAn +item.priceSize)
+        tongtien += newSoLuong * (item.giaMonAn +item.priceSize)
         _theoDoiTongTienTamTinh.value = tongtien
     }
 
     fun setTongTienGiam(newSoLuong: Int, item: FoodItemCart) {
-        tongtien -= (newSoLuong + 1) * item.giaMonAn
-        tongtien += newSoLuong * item.giaMonAn
+        tongtien -= (newSoLuong + 1) * (item.giaMonAn +item.priceSize)
+        tongtien += newSoLuong * (item.giaMonAn +item.priceSize)
         _theoDoiTongTienTamTinh.value = tongtien
     }
     fun initDataShoppingCart(email:String){
@@ -104,11 +104,12 @@ class ViewModelShoppingcart(private val repository: FirebaseReposityGetCart) : V
 
 
     fun updateSoLuongMon(item: FoodItemCart, newSoLuong: Int) {
-
         val newItem = item.copy(quantity = newSoLuong)
         viewModelScope.launch {
             repository.updateItem(newItem)
         }
+        observeCartChang()
+
     }
 
     // Lấy ds gồm các món ăn được chọn để hiển thị lên tổng số món đã chọn
@@ -123,7 +124,7 @@ class ViewModelShoppingcart(private val repository: FirebaseReposityGetCart) : V
         }
     }
     private fun tinhLaiTongTien(ds: List<FoodItemCart>){
-        tongtien=ds.filter { it.checkBox }.sumOf { it.quantity*it.giaMonAn }
+        tongtien=ds.filter { it.checkBox }.sumOf { it.quantity*(it.giaMonAn + it.priceSize) }
         _theoDoiTongTienTamTinh.value=tongtien
         updatePhiVanChuyen()
         updateTongTienHang()
@@ -135,7 +136,7 @@ class ViewModelShoppingcart(private val repository: FirebaseReposityGetCart) : V
 
     }
     private fun updateDschon(ds: List<FoodItemCart>){
-        dsChon = ds.filter { it.checkBox } ?: emptyList()
+        dsChon = ds.filter { it.checkBox }
         _dsDuocChon.value = dsChon
     }
 

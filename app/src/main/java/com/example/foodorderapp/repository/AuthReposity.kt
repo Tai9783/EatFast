@@ -11,12 +11,23 @@ class AuthReposity {
 
 
     fun login(email: String,pass: String, onCallBack: (String,Boolean)-> Unit){
+        Log.e("AuthReposity","đã vào hàm login $email $pass")
+        Log.d("AuthReposity", "Bắt đầu gọi signInWithEmailAndPassword")
         firebaseAuth.signInWithEmailAndPassword(email,pass)
             .addOnCompleteListener {task->
-                if (task.isSuccessful)
-                    onCallBack(email,true)
-                else
-                    onCallBack(email,false)
+                Log.e("AuthReposity5","đã đăng nhập thành công $task")
+                if (task.isSuccessful) {
+                    onCallBack(email, true)
+                    Log.e("AuthReposity","đã đăng nhập thành công")
+                }
+                else {
+                    onCallBack(email, false)
+                    Log.e("AuthReposity","đăng nhập khoong thành công")
+
+                }
+            }
+            .addOnFailureListener {e->
+                Log.e("AuthReposity", "Lỗi Firebase: ${e.message}")
             }
     }
 

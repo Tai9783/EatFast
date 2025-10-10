@@ -34,6 +34,7 @@ import com.example.foodorderapp.viewmodel.CombinedViewModelFactory
 import com.example.foodorderapp.viewmodel.ShareViewModelFoodId
 import com.example.foodorderapp.viewmodel.ShareViewModelSellerId
 import com.example.foodorderapp.viewmodel.ViewModelCustom
+import com.example.foodorderapp.viewmodel.ViewModelGetInforFood
 import com.example.foodorderapp.viewmodel.ViewModelGetInforUser
 import com.example.foodorderapp.viewmodel.ViewModelSizeOptionFood
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -51,6 +52,7 @@ class FragmentCustomizeFood : BottomSheetDialogFragment() {
     private lateinit var viewModelGetInforUser: ViewModelGetInforUser
     private lateinit var shareViewModelFoodId: ShareViewModelFoodId
     private lateinit var viewModelCustom: ViewModelCustom
+    private lateinit var viewModelGetInforFood: ViewModelGetInforFood
 
     override fun onStart() {
         super.onStart()
@@ -88,6 +90,7 @@ class FragmentCustomizeFood : BottomSheetDialogFragment() {
         shareViewModelFoodId= ViewModelProvider(requireActivity())[ShareViewModelFoodId::class.java]
         viewModelCustom= ViewModelProvider(requireActivity())[ViewModelCustom::class.java]
         viewModelGetInforUser= ViewModelProvider(requireActivity())[ViewModelGetInforUser::class.java]
+        viewModelGetInforFood=ViewModelProvider(requireActivity())[ViewModelGetInforFood::class.java]
 
         combinedViewModelCustom= ViewModelProvider(this,CombinedViewModelFactory(
             viewModelCustom,
@@ -109,16 +112,18 @@ class FragmentCustomizeFood : BottomSheetDialogFragment() {
                     viewModelCustom.theoDoiTenQuan.observe(viewLifecycleOwner){newTenQuan->
                         nameShop.text= newTenQuan
                     }
-                    FirebaseReposityInforMonAn().getInforMonAn(newFoodId) { newNameFood, newPrice, newImage ->
-                        nameFood.text = newNameFood
-                        price.text = FormatterMoney.formatterMoney(newPrice)
+                    viewModelGetInforFood.getInforFood(newFoodId)
+
+                    viewModelGetInforFood.selectFood.observe(viewLifecycleOwner){newFood->
+                        nameFood.text = newFood.name_food
+                        price.text = FormatterMoney.formatterMoney(newFood.price)
 
                         Glide.with(this)
-                            .load(newImage)
+                            .load(newFood.image_url)
                             .error(R.drawable.home_logo_nhahang_default)
                             .into(imageFood)
 
-                        viewModelCustom.updateGiaGoc(newPrice)
+                        viewModelCustom.updateGiaGoc(newFood.price)
 
                     }
 
@@ -179,7 +184,7 @@ class FragmentCustomizeFood : BottomSheetDialogFragment() {
         val taste= adapterTastesFood.getSelectTastes()
         val optionSize= adapterSizeOptionFood.getSelectedSize()
 
-        var optionDescription=""
+        val optionDescription: String
         // Kiểm tra null trước
         if (optionSize == null) {
             Toast.makeText(context, "Vui lòng chọn size", Toast.LENGTH_SHORT).show()

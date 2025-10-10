@@ -18,7 +18,7 @@ import androidx.room.PrimaryKey
     ],
     indices = [Index(value = ["seller_id"])]    // Tạo index cho seller để tăng tốc truy vấn
 )
-data class Food(
+data class  Food(
     @PrimaryKey
     @ColumnInfo(name = "food_id") var food_id: String="",
     var seller_id: String="",
@@ -27,4 +27,6 @@ data class Food(
     var name_food: String="",
     var price: Int=0,
     var quantity_sold: Int=0,
+    var isAvailable: Boolean=false,
+    var stockQuantity: Int=0
     )

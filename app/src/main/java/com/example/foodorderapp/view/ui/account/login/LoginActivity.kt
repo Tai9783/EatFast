@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
     private var loadingDialog: FragmentDialogLogin? = null
     private val handler = Handler(Looper.getMainLooper()) // Handler để xử lý delay
     private var startTime: Long = 0 // Thời điểm bắt đầu hiển thị dialog
-    private val MIN_DISPLAY_TIME = 3000L
+    private val MIN_DISPLAY_TIME = 2000L
 
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var firebaseAuth: FirebaseAuth
@@ -161,6 +161,7 @@ class LoginActivity : AppCompatActivity() {
     private fun xulyDangNhap() {
         val email= binding.edtEmail.text.toString()
         val password=binding.edtMatKhau.text.toString()
+        Log.d("Login","$email $password")
         isDelayFinish = false
         isLoginFinish = false
         loginSuccess = false
@@ -177,10 +178,12 @@ class LoginActivity : AppCompatActivity() {
 
         Delay().runAfterMinDelay(startTime,MIN_DISPLAY_TIME) {
             isDelayFinish = true
+            Log.d("Delay","$isDelayFinish")
             checkDoneAndProceed()
         }
 
            AuthReposity().login(email,password) { mail,ischeck ->
+               Log.d("Login","$mail $ischeck")
             if (ischeck) {
                 loginSuccess = true
                 userLoggedIn = mail
@@ -191,7 +194,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkDoneAndProceed() {
+        Log.e("checkDoneAndProceed"," Dãd vào trong hàm checkDoneAndProceed $isDelayFinish $isLoginFinish")
         if (isDelayFinish && isLoginFinish) {
+            Log.d("CheckDoneAndProceed","$loginSuccess $userLoggedIn")
             hideLoadingDialog()
             if (loginSuccess) {
                 goToMain(userLoggedIn)
